@@ -1,36 +1,22 @@
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class Main extends Application{
+public class Main extends Application {
 
-    Button button;
-    Stage window;
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        window = primaryStage;
-        window.setTitle("Akukaracza");
-        
-        Button button = new Button("Click me");
-        button.setOnAction(e -> {
-        	button.setText("AAA");
-        });
-        
-        StackPane layout = new StackPane();
-        layout.getChildren().add(button);
-        Scene scene = new Scene(layout, 300, 300);
-        
-        window.setScene(scene);
-        window.show();
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("scene.fxml"));
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.show();
     }
 
-    
 
 }
