@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -8,18 +10,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" styleClass="root" stylesheets="@Scene.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" styleClass="root" stylesheets="Scene.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <left>
       <VBox styleClass="vbox" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="43.0" prefWidth="100.0" text="Movie App" />
             <Button mnemonicParsing="false" prefHeight="131.0" prefWidth="101.0" text="Your Profile" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Movie LIst" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Series List" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Search" />
             <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Top Lists">
               <items>
-                <MenuItem mnemonicParsing="false" text="Movies"/>
+                <MenuItem mnemonicParsing="false" text="Movies" />
                 <MenuItem mnemonicParsing="false" text="Series" />
               </items>
             </MenuButton>
@@ -29,4 +30,78 @@
          </children>
       </VBox>
    </left>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="hbox" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="100.0" text="Movie App" />
+         </children>
+      </HBox>
+   </top>
+   <right>
+      <Pane maxWidth="350.0" minHeight="350.0" minWidth="350.0" prefHeight="620.0" prefWidth="350.0" styleClass="pane" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="621.0" prefWidth="534.0" BorderPane.alignment="CENTER">
+         <content>
+            <AnchorPane prefHeight="871.0" prefWidth="575.0" styleClass="center">
+               <children>
+                  <VBox layoutX="20.0" layoutY="20.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
+                     <children>
+                        <AnchorPane fx:id="anchor1" layoutX="5.0" layoutY="5.0" maxWidth="153.0" prefHeight="200.0" prefWidth="153.0" styleClass="center-anchor" />
+                        <Button fx:id="button1" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="190.0" layoutY="20.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
+                     <children>
+                        <AnchorPane fx:id="anchor2" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
+                          <Button fx:id="button2" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="365.0" layoutY="20.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
+                     <children>
+                        <AnchorPane fx:id="anchor3" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
+                         <Button fx:id="button3" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="20.0" layoutY="310.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
+                     <children>
+                        <AnchorPane fx:id="anchor4" layoutX="10.0" layoutY="300.0" minWidth="2.0" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
+                         <Button fx:id="button4" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="190.0" layoutY="310.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
+                     <children>
+                        <AnchorPane fx:id="anchor5" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
+                         <Button fx:id="button5" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="365.0" layoutY="310.0" styleClass="center-vbox">
+                     <children>
+                        <AnchorPane fx:id="anchor6" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
+                         <Button fx:id="button6" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="20.0" layoutY="610.0" styleClass="center-vbox">
+                     <children>
+                        <AnchorPane fx:id="anchor7" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
+                         <Button fx:id="button7" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="190.0" layoutY="610.0" styleClass="center-vbox">
+                     <children>
+                        <AnchorPane fx:id="anchor8" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
+                         <Button fx:id="button8" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="365.0" layoutY="610.0" styleClass="center-vbox">
+                     <children>
+                        <AnchorPane fx:id="anchor9" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
+                         <Button fx:id="button9" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </center>
 </BorderPane>

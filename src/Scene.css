@@ -2,42 +2,56 @@
 	-fx-background-color: #202746;
 }
 
+.hbox{
+	-fx-font-family: 'Bowlby One SC', cursive;
+	-fx-background-color:  #202746;
+	-fx-border-color: white;
+	-fx-border-width: 0 0 1pt 0;
+}
+
+.hbox > .label{
+    -fx-font-size: 25pt;
+	-fx-font-weight: bold;
+   	-fx-pref-width: 1080pt;
+	-fx-pref-height: 100pt;
+	-fx-text-fill: #ffffff;
+}
+
 .left{
+    -fx-background-color: #202746;
 	-fx-pref-width: 150pt; 
 }
 
 .vbox{
+	-fx-font-family: 'Bowlby One SC', cursive;
 	-fx-alignment: center;
+	-fx-border-color: white;
+	-fx-border-width: 0 1pt 0 0;
 }
 
 .vbox > .button{
+	-fx-font-size: 14pt;
     -fx-pref-width: 150pt; 
-	-fx-pref-height: 50pt;
+	-fx-pref-height: 60pt;
 	-fx-background-color: #293256;
 	-fx-text-fill: #ffffff;
+	-fx-border-color: black;
+	-fx-border-width: 0 0 1pt 0;
 }
 
-.vbox > .button{
+.vbox > .button:hover{
+	-fx-background-color: blue;
 	-fx-cursor: hand; 
-}
-
-.vbox > .label{
-    -fx-font-size: 14pt;
-	-fx-font-weight: bold;
-   	-fx-pref-width: 150pt; 
-	-fx-pref-height: 50pt;
-	-fx-background-color: #3d8fd1;
-	-fx-alignment: center;
-	-fx-text-fill: #ffffff;
-	-fx-padding: 0 5pt;
-    -fx-background-insets:0 5pt;
 }
 
 .menu-button{
+	-fx-font-size: 14pt;
     -fx-pref-width: 150pt; 
-	-fx-pref-height: 50pt;
+	-fx-pref-height: 60pt;
 	-fx-background-color: #293256;
 	-fx-cursor: hand; 
+	-fx-border-color: black;
+	-fx-border-width: 0 0 1pt 0;
 }
 
 .menu-button:hover{
@@ -49,7 +63,7 @@
 	-fx-border-color: aqua;
 	-fx-pref-height: 30pt;
 	-fx-background-color:darkslategrey;
-	-fx-padding: 57pt;
+	-fx-padding: 33pt;
 }
 
 .menu-button .menu-item:hover{
@@ -67,6 +81,92 @@
 
 .menu-button .text{
 	-fx-text-alignment: center;
+}
+
+.pane{
+	-fx-pref-width: 400pt;
+	-fx-max-width: 400pt;
+	-fx-min-width: 400pt;
+	-fx-background-color: #202746;
+	-fx-text-fill: #ffffff;
+}
+
+.center{
+	-fx-font-family: 'Bowlby One SC', cursive;
+	-fx-background-color: #202746;	
+}
+
+.center-vbox{
+	-fx-pref-width: 100pt;
+	-fx-max-width: 100pt;
+	-fx-min-width: 100pt;
+	-fx-pref-height: 200pt;
+	-fx-max-height: 200pt;
+	-fx-min-height: 200pt;
+}
+
+.center-vbox:hover{
+	-fx-border-color: black;
+}
+
+
+.center-vbox > .button{
+	-fx-font-family: Arial;
+	-fx-font-size: 11pt;
+	-fx-pref-width: 100pt;
+	-fx-max-width: 100pt;
+	-fx-min-width: 100pt;
+	-fx-pref-height: 50pt;
+	-fx-max-height: 50pt;
+	-fx-min-height: 50pt;
+	-fx-text-alignment: center;
+	-fx-background-color: #293256;
+	-fx-text-fill: #ffffff;
+	-fx-alignment: center;
+}
+
+.center{
+	-fx-text-fill: #ffffff;
+}
+
+
+.center-vbox > .center-anchor{
+	-fx-pref-width: 100pt;
+	-fx-max-width: 100pt;
+	-fx-min-width: 100pt;
+	-fx-pref-height: 150pt;
+	-fx-max-height: 150pt;
+	-fx-min-height: 150pt;
+	-fx-background-size: cover;
+}
+
+.center-vbox > .button{
+	-fx-font-family: 'Bowlby One SC', cursive;
+	-fx-font-weight: bold;
+}
+
+.center-anchor:hover{
+	-fx-cursor: hand;
+}
+
+.scroll-pane {
+    -fx-background-color:transparent;
+}
+
+.scroll-bar{
+    -fx-background-color: #293256;
+    -fx-background-radius: 5pt;
+    -fx-pref-width: 15pt;
+}
+
+.scroll-bar:hover{
+	-fx-cursor: hand; 
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #202746;
+    -fx-background-insets: 0 6 0 6;
+    -fx-background-radius: 5pt;
 }
 
 
