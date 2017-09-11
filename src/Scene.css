@@ -1,0 +1,72 @@
+.root{
+	-fx-background-color: #202746;
+}
+
+.left{
+	-fx-pref-width: 150pt; 
+}
+
+.vbox{
+	-fx-alignment: center;
+}
+
+.vbox > .button{
+    -fx-pref-width: 150pt; 
+	-fx-pref-height: 50pt;
+	-fx-background-color: #293256;
+	-fx-text-fill: #ffffff;
+}
+
+.vbox > .button{
+	-fx-cursor: hand; 
+}
+
+.vbox > .label{
+    -fx-font-size: 14pt;
+	-fx-font-weight: bold;
+   	-fx-pref-width: 150pt; 
+	-fx-pref-height: 50pt;
+	-fx-background-color: #3d8fd1;
+	-fx-alignment: center;
+	-fx-text-fill: #ffffff;
+	-fx-padding: 0 5pt;
+    -fx-background-insets:0 5pt;
+}
+
+.menu-button{
+    -fx-pref-width: 150pt; 
+	-fx-pref-height: 50pt;
+	-fx-background-color: #293256;
+	-fx-cursor: hand; 
+}
+
+.menu-button:hover{
+	-fx-background-color: blue;
+	-fx-cursor: hand; 
+}
+
+.menu-button .menu-item{
+	-fx-border-color: aqua;
+	-fx-pref-height: 30pt;
+	-fx-background-color:darkslategrey;
+	-fx-padding: 57pt;
+}
+
+.menu-button .menu-item:hover{
+	-fx-background-color: blue;
+}
+
+.context-menu{
+	-fx-background-color: #293256;
+}
+
+.menu-button .label{
+	-fx-text-fill:  #ffffff;
+	-fx-alignment: center;
+}
+
+.menu-button .text{
+	-fx-text-alignment: center;
+}
+
+
