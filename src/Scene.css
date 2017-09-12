@@ -150,7 +150,7 @@
 }
 
 .scroll-pane {
-    -fx-background-color:transparent;
+    -fx-background-color: transparent;
 }
 
 .scroll-bar{
@@ -168,5 +168,48 @@
     -fx-background-insets: 0 6 0 6;
     -fx-background-radius: 5pt;
 }
+
+.cover{
+	-fx-pref-width: 100pt;
+	-fx-max-width: 100pt;
+	-fx-min-width: 100pt;
+	-fx-min-height: 150pt;
+	-fx-background-size: cover;
+	-fx-border-color: white;
+	-fx-border-radius: 10px;
+	-fx-background-radius: 10px;
+}
+
+.texts{
+	-fx-background-color:  #293256;
+	-fx-border-color: white;
+	-fx-border-radius: 50px;
+	-fx-background-radius: 50px;
+}
+
+.title{
+	-fx-font-weight: bold;
+	-fx-text-alignment: center;
+}
+
+.description{
+	-fx-text-fill: white;
+	-fx-max-width: 370pt;
+	-fx-min-width: 370pt;
+	-fx-background-color:  #293256;
+	-fx-cursor:default;
+	-fx-padding: 20pt 30pt 20pt 20pt;
+	-fx-font-size: 14pt;
+}
+
+.DescriptionScroll{
+ -fx-background-color: #293256;
+}
+
+.DescriptionVBox{
+-fx-background-color: #293256;
+}
+
+
 
 

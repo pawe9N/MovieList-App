@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" styleClass="root" stylesheets="Scene.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" styleClass="root" stylesheets="@Scene.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <left>
       <VBox styleClass="vbox" BorderPane.alignment="CENTER">
          <children>
@@ -38,62 +38,94 @@
       </HBox>
    </top>
    <right>
-      <Pane maxWidth="350.0" minHeight="350.0" minWidth="350.0" prefHeight="620.0" prefWidth="350.0" styleClass="pane" BorderPane.alignment="CENTER" />
+      <Pane maxWidth="403.0" minHeight="350.0" minWidth="350.0" prefHeight="619.0" prefWidth="403.0" styleClass="pane" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" cacheShape="false" layoutX="186.0" layoutY="20.0" prefHeight="193.0" prefWidth="324.0" styleClass="texts">
+               <children>
+                  <Text fx:id="title" fill="WHITE" layoutX="153.0" layoutY="67.0" strokeType="INSIDE" strokeWidth="0.0" styleClass="title" textAlignment="CENTER" wrappingWidth="203.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="rating" fill="WHITE" layoutX="153.0" layoutY="139.0" strokeType="INSIDE" strokeWidth="0.0" styleClass="rating" text="10/10" textAlignment="CENTER" wrappingWidth="203.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <AnchorPane fx:id="cover" layoutX="20.0" layoutY="14.0" maxHeight="204.0" maxWidth="159.0" pickOnBounds="false" prefHeight="204.0" prefWidth="159.0" styleClass="cover">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></AnchorPane>
+            <ScrollPane hbarPolicy="NEVER" layoutX="17.0" layoutY="247.0" maxWidth="510.0" minWidth="200.0" prefHeight="353.0" prefWidth="493.0" styleClass="DescriptionScroll">
+               <content>
+                  <VBox minHeight="350.0" styleClass="DescriptionVBox">
+                     <children>
+                        <Label fx:id="description" alignment="TOP_LEFT" contentDisplay="TOP" depthTest="ENABLE" minHeight="370.0" pickOnBounds="false" styleClass="description" text="Maximus is a powerful Roman general, loved by the people and the aging Emperor, Marcus Aurelius. Before his death, the Emperor chooses Maximus to be his heir over his own son, Commodus, and a power struggle leaves Maximus and his family condemned to death. The powerful general is unable to save his family, and his loss of will allows him to get captured and put into the Gladiator games until he dies. The only desire that fuels him now is the chance to rise to the top so that he will be able to look into the eyes of the man who will feel his revenge." textAlignment="JUSTIFY" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content></ScrollPane>
+         </children></Pane>
    </right>
    <center>
       <ScrollPane hbarPolicy="NEVER" prefHeight="621.0" prefWidth="534.0" BorderPane.alignment="CENTER">
          <content>
             <AnchorPane prefHeight="871.0" prefWidth="575.0" styleClass="center">
                <children>
-                  <VBox layoutX="20.0" layoutY="20.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
+                  <VBox fx:id="vbox1" layoutX="20.0" layoutY="20.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
                      <children>
                         <AnchorPane fx:id="anchor1" layoutX="5.0" layoutY="5.0" maxWidth="153.0" prefHeight="200.0" prefWidth="153.0" styleClass="center-anchor" />
                         <Button fx:id="button1" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </VBox>
-                  <VBox layoutX="190.0" layoutY="20.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
+                  <VBox fx:id="vbox2" layoutX="190.0" layoutY="20.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
                      <children>
                         <AnchorPane fx:id="anchor2" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
                           <Button fx:id="button2" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </VBox>
-                  <VBox layoutX="365.0" layoutY="20.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
+                  <VBox fx:id="vbox3" layoutX="365.0" layoutY="20.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
                      <children>
                         <AnchorPane fx:id="anchor3" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
                          <Button fx:id="button3" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </VBox>
-                  <VBox layoutX="20.0" layoutY="310.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
+                  <VBox fx:id="vbox4" layoutX="20.0" layoutY="310.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
                      <children>
                         <AnchorPane fx:id="anchor4" layoutX="10.0" layoutY="300.0" minWidth="2.0" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
                          <Button fx:id="button4" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </VBox>
-                  <VBox layoutX="190.0" layoutY="310.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
+                  <VBox fx:id="vbox5" layoutX="190.0" layoutY="310.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
                      <children>
                         <AnchorPane fx:id="anchor5" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
                          <Button fx:id="button5" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </VBox>
-                  <VBox layoutX="365.0" layoutY="310.0" styleClass="center-vbox">
+                  <VBox fx:id="vbox6" layoutX="365.0" layoutY="310.0" styleClass="center-vbox">
                      <children>
                         <AnchorPane fx:id="anchor6" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
                          <Button fx:id="button6" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </VBox>
-                  <VBox layoutX="20.0" layoutY="610.0" styleClass="center-vbox">
+                  <VBox fx:id="vbox7" layoutX="20.0" layoutY="610.0" styleClass="center-vbox">
                      <children>
                         <AnchorPane fx:id="anchor7" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
                          <Button fx:id="button7" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </VBox>
-                  <VBox layoutX="190.0" layoutY="610.0" styleClass="center-vbox">
+                  <VBox fx:id="vbox8" layoutX="190.0" layoutY="610.0" styleClass="center-vbox">
                      <children>
                         <AnchorPane fx:id="anchor8" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
                          <Button fx:id="button8" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </VBox>
-                  <VBox layoutX="365.0" layoutY="610.0" styleClass="center-vbox">
+                  <VBox fx:id="vbox9" layoutX="365.0" layoutY="610.0" styleClass="center-vbox">
                      <children>
                         <AnchorPane fx:id="anchor9" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
                          <Button fx:id="button9" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />

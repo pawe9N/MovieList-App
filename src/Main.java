@@ -17,6 +17,7 @@ public class Main extends Application {
     	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("Scene.fxml"));
         primaryStage.setTitle("Movie App");
+        primaryStage.setResizable(false);
         Parent root = loader.load();
         scene = new Scene(root, 1280, 720);
         scene.getStylesheets().add(getClass().getResource("Scene.css").toExternalForm());
