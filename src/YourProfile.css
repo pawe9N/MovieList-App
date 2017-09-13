@@ -1,0 +1,88 @@
+.root{
+	-fx-background-color: #202746;
+}
+
+.hbox{
+	-fx-font-family: 'Bowlby One SC', cursive;
+	-fx-background-color:  #202746;
+	-fx-border-color: white;
+	-fx-border-width: 0 0 1pt 0;
+}
+
+.hbox > .label{
+    -fx-font-size: 25pt;
+	-fx-font-weight: bold;
+   	-fx-pref-width: 1080pt;
+	-fx-pref-height: 100pt;
+	-fx-text-fill: #ffffff;
+}
+
+.left{
+    -fx-background-color: #202746;
+	-fx-pref-width: 150pt; 
+}
+
+.vbox{
+	-fx-font-family: 'Bowlby One SC', cursive;
+	-fx-alignment: center;
+	-fx-border-color: white;
+	-fx-border-width: 0 1pt 0 0;
+}
+
+.vbox > .button{
+	-fx-font-size: 14pt;
+    -fx-pref-width: 150pt; 
+	-fx-pref-height: 60pt;
+	-fx-background-color: #293256;
+	-fx-text-fill: #ffffff;
+	-fx-border-color: black;
+	-fx-border-width: 0 0 1pt 0;
+}
+
+.vbox > .button:hover{
+	-fx-background-color: blue;
+	-fx-cursor: hand; 
+}
+
+.menu-button{
+	-fx-font-size: 14pt;
+    -fx-pref-width: 150pt; 
+	-fx-pref-height: 60pt;
+	-fx-background-color: #293256;
+	-fx-cursor: hand; 
+	-fx-border-color: black;
+	-fx-border-width: 0 0 1pt 0;
+}
+
+.menu-button:hover{
+	-fx-background-color: blue;
+	-fx-cursor: hand; 
+}
+
+.menu-button .menu-item{
+	-fx-border-color: aqua;
+	-fx-pref-height: 30pt;
+	-fx-background-color:darkslategrey;
+	-fx-padding: 33pt;
+}
+
+.menu-button .menu-item:hover{
+	-fx-background-color: blue;
+}
+
+.context-menu{
+	-fx-background-color: #293256;
+}
+
+.menu-button .label{
+	-fx-text-fill:  #ffffff;
+	-fx-alignment: center;
+}
+
+.menu-button .text{
+	-fx-text-alignment: center;
+}
+
+.awatar{
+	-fx-background-image: url('tsotl.jpg');
+}

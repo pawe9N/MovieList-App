@@ -14,7 +14,7 @@
    <left>
       <VBox styleClass="vbox" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="131.0" prefWidth="101.0" text="Your Profile" />
+            <Button mnemonicParsing="false" onMouseClicked="#showYourProfile" prefHeight="131.0" prefWidth="101.0" text="Your Profile" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Movie LIst" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Series List" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Search" />
@@ -40,21 +40,36 @@
    <right>
       <Pane maxWidth="403.0" minHeight="350.0" minWidth="350.0" prefHeight="619.0" prefWidth="403.0" styleClass="pane" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" cacheShape="false" layoutX="186.0" layoutY="20.0" prefHeight="193.0" prefWidth="324.0" styleClass="texts">
+            <VBox alignment="CENTER" cacheShape="false" layoutX="174.0" layoutY="16.0" prefHeight="209.0" prefWidth="335.0" styleClass="texts">
                <children>
-                  <Text fx:id="title" fill="WHITE" layoutX="153.0" layoutY="67.0" strokeType="INSIDE" strokeWidth="0.0" styleClass="title" textAlignment="CENTER" wrappingWidth="203.0">
+                  <Text fx:id="title" fill="WHITE" layoutX="153.0" layoutY="67.0" strokeType="INSIDE" strokeWidth="0.0" styleClass="title" text="Title" textAlignment="CENTER" wrappingWidth="213.0">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <Text fx:id="rating" fill="WHITE" layoutX="153.0" layoutY="139.0" strokeType="INSIDE" strokeWidth="0.0" styleClass="rating" text="10/10" textAlignment="CENTER" wrappingWidth="203.0">
+                  <Text fx:id="ratingText" fill="WHITE" layoutX="153.0" layoutY="139.0" strokeType="INSIDE" strokeWidth="0.0" styleClass="rating" text="Rating: 10/10" textAlignment="CENTER" wrappingWidth="306.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="countryText" fill="WHITE" strokeType="INSIDE" strokeWidth="0.0" styleClass="rating" text="Date: 2009" textAlignment="CENTER" wrappingWidth="304.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="premiereOrEpisodesText" fill="WHITE" strokeType="INSIDE" strokeWidth="0.0" styleClass="rating" text="From: Poland" textAlignment="CENTER" wrappingWidth="304.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="runtimeOrSeasonsText" fill="WHITE" strokeType="INSIDE" strokeWidth="0.0" styleClass="rating" text="Time: 2h 35min" textAlignment="CENTER" wrappingWidth="304.0">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Text>
                </children>
             </VBox>
-            <AnchorPane fx:id="cover" layoutX="20.0" layoutY="14.0" maxHeight="204.0" maxWidth="159.0" pickOnBounds="false" prefHeight="204.0" prefWidth="159.0" styleClass="cover">
+            <AnchorPane fx:id="cover" layoutX="20.0" layoutY="14.0" maxHeight="213.0" maxWidth="159.0" minHeight="213.0" minWidth="152.0" pickOnBounds="false" prefHeight="213.0" prefWidth="152.0" styleClass="cover">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></AnchorPane>
@@ -91,7 +106,7 @@
                   </VBox>
                   <VBox fx:id="vbox3" layoutX="365.0" layoutY="20.0" maxHeight="250.0" maxWidth="150.0" minHeight="250.0" minWidth="150.0" prefHeight="250.0" prefWidth="150.0" styleClass="center-vbox">
                      <children>
-                        <AnchorPane fx:id="anchor3" prefHeight="200.0" prefWidth="200.0" styleClass="center-anchor" />
+                        <AnchorPane fx:id="anchor3" maxWidth="153.0" prefHeight="200.0" prefWidth="153.0" styleClass="center-anchor" />
                          <Button fx:id="button3" mnemonicParsing="false" text="aaaa" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </VBox>

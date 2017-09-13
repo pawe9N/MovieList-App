@@ -170,10 +170,10 @@
 }
 
 .cover{
-	-fx-pref-width: 100pt;
-	-fx-max-width: 100pt;
-	-fx-min-width: 100pt;
-	-fx-min-height: 150pt;
+	-fx-pref-width: 140pt;
+	-fx-max-width: 140pt;
+	-fx-min-width: 140pt;
+	-fx-min-height: 160pt;
 	-fx-background-size: cover;
 	-fx-border-color: white;
 	-fx-border-radius: 10px;
@@ -183,7 +183,7 @@
 .texts{
 	-fx-background-color:  #293256;
 	-fx-border-color: white;
-	-fx-border-radius: 50px;
+	-fx-border-radius: 30px;
 	-fx-background-radius: 50px;
 }
 
@@ -203,7 +203,7 @@
 }
 
 .DescriptionScroll{
- -fx-background-color: #293256;
+ 	-fx-background-color: #293256;
 }
 
 .DescriptionVBox{
