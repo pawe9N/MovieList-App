@@ -31,8 +31,10 @@ public class SeriesVbox extends MovieVbox {
     	episodesText.setText(Integer.toString(episodes)+" episodes");
     	seriesvbox.setSeasonsText(seasonsText);
     	seriesvbox.setSeasons(seasons);
-    	seasonsText.setText(Integer.toString(seasons)+" seasons");
-    	
+    	if(seasons > 1)
+    		seasonsText.setText(Integer.toString(seasons)+" seasons");
+    	else
+    		seasonsText.setText(Integer.toString(seasons)+" season");
 	}
 	
 	public Text getEpisodesText() {

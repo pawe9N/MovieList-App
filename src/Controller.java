@@ -1,3 +1,5 @@
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,17 +40,25 @@ public class Controller implements Initializable {
 	LinkedList<MovieVbox> MovieVboxes;
 	LinkedList<SeriesVbox> SeriesVboxes;
 	int index;
+	
+	private IntegerProperty indexC = new SimpleIntegerProperty(-1);
+
+	public void setIndex(int index){
+	    this.indexC.set(index);
+	    if(index==1){
+	    	showMoviesList();
+	    }else if(index==2){
+	    	showSeriesList();
+	    }
+	}
 
     @Override 
     public void initialize(URL location, ResourceBundle resources) {
-    	
-        System.out.println("View is now loaded!");
         
         MySQL.initialization();
         
         MovieVboxes = new LinkedList<MovieVbox>();
         SeriesVboxes = new LinkedList<SeriesVbox>();
-        
         
         showMoviesList();   
     }
@@ -131,7 +141,7 @@ public class Controller implements Initializable {
     	app_stage.show();
     }
     
-    public void showSeriesList(MouseEvent event){
+    public void showSeriesList(){
     	VBox [] vbox = {vbox1, vbox2, vbox3, vbox4, vbox5, vbox6, vbox7, vbox8, vbox9};
         AnchorPane [] imgVariables = {anchor1, anchor2, anchor3, anchor4, anchor5, anchor6, anchor7, anchor8, anchor9};
         Button [] titleButtons = {button1, button2, button3, button4, button5, button6, button7, button8, button9};
@@ -174,6 +184,10 @@ public class Controller implements Initializable {
         	 
         }
         descriptionInSeriesBeginning(SeriesVboxes);
+    }
+    
+    public void showSeriesListClick(MouseEvent event){
+    	showSeriesList();
     }
     
     public void descriptionInSeriesBeginning(LinkedList<SeriesVbox> SeriesVboxes){

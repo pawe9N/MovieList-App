@@ -86,3 +86,29 @@
 .awatar{
 	-fx-background-image: url('tsotl.jpg');
 }
+
+.profile{
+	-fx-background-color: #293256;
+	-fx-background-radius: 10px;
+}
+
+.table{
+	-fx-background-color: #293256;
+	-fx-padding: 20px;
+}
+
+.table .column-header{
+    -fx-background-color: white;
+    -fx-text-fill: #202746;
+    -fx-border-color: #293256;
+    -fx-font-size: 15px;
+}
+
+
+.table .table-cell{
+	-fx-background-color: #293256;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-border-color: #293256;
+    -fx-font-size: 13px;
+}
