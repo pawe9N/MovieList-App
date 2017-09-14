@@ -15,8 +15,8 @@
       <VBox styleClass="vbox" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onMouseClicked="#showYourProfile" prefHeight="131.0" prefWidth="101.0" text="Your Profile" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Movie LIst" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Series List" />
+            <Button mnemonicParsing="false" onMouseClicked="#showMoviesListClick" prefHeight="25.0" prefWidth="108.0" text="Movie LIst" />
+            <Button mnemonicParsing="false" onMouseClicked="#showSeriesList" prefHeight="25.0" prefWidth="110.0" text="Series List" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Search" />
             <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Top Lists">
               <items>

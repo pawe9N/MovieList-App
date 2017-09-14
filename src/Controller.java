@@ -36,6 +36,7 @@ public class Controller implements Initializable {
 	
 	List<Integer> indexes;
 	LinkedList<MovieVbox> MovieVboxes;
+	LinkedList<SeriesVbox> SeriesVboxes;
 	int index;
 
     @Override 
@@ -46,16 +47,17 @@ public class Controller implements Initializable {
         MySQL.initialization();
         
         MovieVboxes = new LinkedList<MovieVbox>();
+        SeriesVboxes = new LinkedList<SeriesVbox>();
+        
+        
+        showMoviesList();   
+    }
+    
+    public void showMoviesList(){
         VBox [] vbox = {vbox1, vbox2, vbox3, vbox4, vbox5, vbox6, vbox7, vbox8, vbox9};
         AnchorPane [] imgVariables = {anchor1, anchor2, anchor3, anchor4, anchor5, anchor6, anchor7, anchor8, anchor9};
         Button [] titleButtons = {button1, button2, button3, button4, button5, button6, button7, button8, button9};
-        
-        
-        
-        showMovieList(MovieVboxes,vbox,imgVariables,titleButtons);   
-    }
-    
-    public void showMovieList(LinkedList<MovieVbox> MovieVboxes, VBox [] vbox, AnchorPane [] imgVariables, Button [] titleButtons){
+    	
     	String movies = "movies";
     	indexes = getRandomIndex(movies);
     	
@@ -96,6 +98,10 @@ public class Controller implements Initializable {
         descriptionInBeginning(MovieVboxes);
     }
     
+    public void showMoviesListClick(MouseEvent event){
+    	showMoviesList();
+    }
+    
     public void descriptionInBeginning(LinkedList<MovieVbox> MovieVboxes){
     	title.setText(MovieVboxes.get(0).getTitle());
       	title.setFill(Color.WHITE);
@@ -125,7 +131,58 @@ public class Controller implements Initializable {
     	app_stage.show();
     }
     
+    public void showSeriesList(MouseEvent event){
+    	VBox [] vbox = {vbox1, vbox2, vbox3, vbox4, vbox5, vbox6, vbox7, vbox8, vbox9};
+        AnchorPane [] imgVariables = {anchor1, anchor2, anchor3, anchor4, anchor5, anchor6, anchor7, anchor8, anchor9};
+        Button [] titleButtons = {button1, button2, button3, button4, button5, button6, button7, button8, button9};
+    	
+    	String series = "series";
+    	indexes = getRandomIndex(series);
+    	
+        for(int i=0; i < 9; i++){
+        	
+        	index = indexes.get(i);
+        	
+        	SeriesVboxes.add(new SeriesVbox(vbox[i]));
+        	String imgName = MySQL.getStringFromTable(series,"imgName", index+1);
+        	String titleS = MySQL.getStringFromTable(series,"title", index+1);
+        	String descriptionS = MySQL.getStringFromTable(series,"description", index+1);
+        	String country = MySQL.getStringFromTable(series,"country", index+1);
+        	int rating = MySQL.getIntFromTable(series, "rating", index+1);
+        	int episodes = MySQL.getIntFromTable(series,"episodes", index+1);
+        	int seasons = MySQL.getIntFromTable(series,"seasons", index+1);
+        	
+        	SeriesVbox.anchorSetImage(SeriesVboxes.get(i), imgVariables[i], imgName);
+        	SeriesVbox.buttonSetText(SeriesVboxes.get(i), titleButtons[i], titleS);
+        	SeriesVbox.descriptionSetText(SeriesVboxes.get(i), description, descriptionS);
+        	SeriesVbox.overiewSeriesSetText(SeriesVboxes.get(i), countryText, country, ratingText, rating, premiereOrEpisodesText, episodes, runtimeOrSeasonsText, seasons);
+        	
+        	SeriesVboxes.get(i).getVboxMovie().addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+                 @Override
+                 public void handle(MouseEvent event) {
+                 	
+                 	VBox vbox = (VBox) event.getSource();
+                 	int i = (int)vbox.getId().charAt(4) - 49;
+                 	title.setText(titleS);
+                 	title.setFill(Color.WHITE);
+                 	SeriesVbox.overiewSeriesSetText(SeriesVboxes.get(i), countryText, country, ratingText, rating, premiereOrEpisodesText, episodes, runtimeOrSeasonsText, seasons);
+                 	description.setText(descriptionS);
+                 	SeriesVbox.anchorSetImage(SeriesVboxes.get(i), cover, imgName);
+                 }
+            });
+        	 
+        }
+        descriptionInSeriesBeginning(SeriesVboxes);
+    }
     
+    public void descriptionInSeriesBeginning(LinkedList<SeriesVbox> SeriesVboxes){
+    	title.setText(SeriesVboxes.get(0).getTitle());
+      	title.setFill(Color.WHITE);
+      	description.setText(SeriesVboxes.get(0).getDescription());
+      	SeriesVbox.overiewSeriesSetText(SeriesVboxes.get(0), countryText, SeriesVboxes.get(0).getCountry(), ratingText, SeriesVboxes.get(0).getRating(), premiereOrEpisodesText, SeriesVboxes.get(0).getEpisodes(), runtimeOrSeasonsText, SeriesVboxes.get(0).getSeasons());
+      	SeriesVbox.anchorSetImage(SeriesVboxes.get(0), cover, SeriesVboxes.get(0).getImgName());
+    }
     
 
 

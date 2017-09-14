@@ -6,20 +6,20 @@ import javafx.scene.text.Text;
 
 public class MovieVbox {
 	
-	private VBox vboxMovie;
-	private AnchorPane anchorImage;
-	private Label descriptionLabel;
-	private Button buttonTitle;
+	protected VBox vboxMovie;
+	protected AnchorPane anchorImage;
+	protected Label descriptionLabel;
+	protected Button buttonTitle;
 	private Text premiereText;
-	private Text countryText;
-	private Text ratingText;
+	protected Text countryText;
+	protected Text ratingText;
 	private Text runtimeText;
-	private String imgName;
-	private String title;
-	private String description;
+	protected String imgName;
+	protected String title;
+	protected String description;
 	private String premiere;
-	private String country;
-	private int rating;
+	protected String country;
+	protected int rating;
 	private int runtime;
 	
 	
@@ -44,7 +44,11 @@ public class MovieVbox {
     	movievbox.setDescription(description);
     }
     
-    public static void overiewMoviesSetText(MovieVbox movievbox, Text premiereText, String premiere, Text countryText, String country, Text ratingText, int rating, Text runtimeText, int runtime){
+    public static void overiewMoviesSetText(MovieVbox movievbox,
+    										Text premiereText, String premiere, 
+    										Text countryText, String country, 
+    										Text ratingText, int rating, 
+    										Text runtimeText, int runtime){
     	movievbox.setPremiereText(premiereText);
     	movievbox.setPremiere(premiere);
     	premiereText.setText(premiere);
