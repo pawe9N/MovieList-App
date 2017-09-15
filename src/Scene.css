@@ -40,7 +40,7 @@
 }
 
 .vbox > .button:hover{
-	-fx-background-color: blue;
+	-fx-background-color: #202746;
 	-fx-cursor: hand; 
 }
 
@@ -55,19 +55,20 @@
 }
 
 .menu-button:hover{
-	-fx-background-color: blue;
+	-fx-background-color:  #202746;
 	-fx-cursor: hand; 
 }
 
 .menu-button .menu-item{
-	-fx-border-color: aqua;
+	-fx-border-color: #ffffff;
 	-fx-pref-height: 30pt;
-	-fx-background-color:darkslategrey;
-	-fx-padding: 33pt;
+	-fx-background-color: #293958;
+	-fx-padding: 5pt;
 }
 
 .menu-button .menu-item:hover{
-	-fx-background-color: blue;
+	-fx-background-color: #202746;
+	-fx-cursor: hand; 
 }
 
 .context-menu{

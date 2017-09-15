@@ -84,20 +84,12 @@
 	-fx-text-alignment: center;
 }
 
-.awatar{
-	-fx-background-image: url('tsotl.jpg');
-}
-
-.profile{
+.table-view{
 	-fx-background-color: #293256;
-	-fx-background-radius: 10px;
+	-fx-padding: 20px;
 }
 
-.table{
-	-fx-background-color: #293256;
-}
-
-.table .column-header{
+.table-view .column-header{
     -fx-background-color: white;
     -fx-text-fill: #202746;
     -fx-border-color: #293256;
@@ -105,10 +97,32 @@
 }
 
 
-.table .table-cell{
+.table-view .table-cell{
+	-fx-font-family: 'Bowlby One SC', cursive;
 	-fx-background-color: #293256;
     -fx-text-fill: white;
     -fx-alignment: center;
     -fx-border-color: #293256;
-    -fx-font-size: 13px;
+    -fx-font-size: 20px;
 }
+
+.scroll-bar{
+    -fx-background-color: #293256;
+    -fx-background-radius: 5pt;
+    -fx-pref-width: 15pt;
+}
+
+.scroll-bar:hover{
+	-fx-cursor: hand; 
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #202746;
+    -fx-background-insets: 0 6 0 6;
+    -fx-background-radius: 5pt;
+}
+
+#pageTitle{
+	-fx-font-family: 'Bowlby One SC', cursive;
+}
+

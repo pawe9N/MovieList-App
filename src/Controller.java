@@ -1,5 +1,6 @@
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -133,14 +134,6 @@ public class Controller implements Initializable {
         return myList;
     }
     
-    public void showYourProfile(MouseEvent event) throws IOException{
-    	Parent home_page_parent = FXMLLoader.load(getClass().getResource("YourProfile.fxml"));
-    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
-    	Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	app_stage.setScene(home_page_scene);
-    	app_stage.show();
-    }
-    
     public void showSeriesList(){
     	VBox [] vbox = {vbox1, vbox2, vbox3, vbox4, vbox5, vbox6, vbox7, vbox8, vbox9};
         AnchorPane [] imgVariables = {anchor1, anchor2, anchor3, anchor4, anchor5, anchor6, anchor7, anchor8, anchor9};
@@ -196,6 +189,37 @@ public class Controller implements Initializable {
       	description.setText(SeriesVboxes.get(0).getDescription());
       	SeriesVbox.overiewSeriesSetText(SeriesVboxes.get(0), countryText, SeriesVboxes.get(0).getCountry(), ratingText, SeriesVboxes.get(0).getRating(), premiereOrEpisodesText, SeriesVboxes.get(0).getEpisodes(), runtimeOrSeasonsText, SeriesVboxes.get(0).getSeasons());
       	SeriesVbox.anchorSetImage(SeriesVboxes.get(0), cover, SeriesVboxes.get(0).getImgName());
+    }
+    
+    public void showYourProfile(MouseEvent event) throws IOException{
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("YourProfile.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showAllMoviesList(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TopLists.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+        TopListsController controller=fxmlLoader.<TopListsController>getController();
+        controller.setIndex(1);
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)vbox1).getScene().getWindow();
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showAllSeriesList(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TopLists.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+        TopListsController controller=fxmlLoader.<TopListsController>getController();
+        controller.setIndex(2);
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)vbox1).getScene().getWindow();
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
     }
     
 

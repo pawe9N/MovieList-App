@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" styleClass="root" stylesheets="@TopLists.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TopListsController">
+   <left>
+      <VBox styleClass="vbox" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#showYourProfile" prefHeight="131.0" prefWidth="101.0" text="Your Profile" />
+            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Top Lists">
+              <items>
+                <MenuItem onAction="#showAllMovies" mnemonicParsing="false" text="All Movies" />
+                <MenuItem onAction="#showAllSeries"  mnemonicParsing="false" text="All Series" />
+                  <MenuItem mnemonicParsing="false" text="Watched Movies" />
+                  <MenuItem mnemonicParsing="false" text="Wartched Series" />
+              </items>
+            </MenuButton>
+            <Button mnemonicParsing="false" onMouseClicked="#showMoviesListClick" prefHeight="25.0" prefWidth="108.0" text="Movie LIst" />
+            <Button mnemonicParsing="false" onMouseClicked="#showSeriesListClick" prefHeight="25.0" prefWidth="110.0" text="Series List" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="153.0" text="Watched" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="To Watch" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Watching" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Search" />
+            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Edit List">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Add to list" />
+                  <MenuItem mnemonicParsing="false" text="Change row" />
+                  <MenuItem mnemonicParsing="false" text="Delete row" />
+               </items>
+            </MenuButton>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="hbox" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="100.0" text="Movie App" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fx:id="pageTitle" fill="WHITE" layoutX="417.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="pageTitle" text="Movie List">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <TableView fx:id="table" layoutX="50.0" layoutY="64.0" prefHeight="542.0" prefWidth="891.0">
+               <columns>
+                  <TableColumn fx:id="movieImage" editable="false" prefWidth="283.0" sortable="false" styleClass="movieImage" text="Image" />
+                  <TableColumn fx:id="movieTitle" editable="false" minWidth="0.0" prefWidth="348.0" text="Title" />
+                  <TableColumn fx:id="movieRating" editable="false" prefWidth="201.0" text="Rating" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -8,6 +8,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +19,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -25,13 +27,16 @@ import javafx.stage.Stage;
 public class YourProfileController implements Initializable {
 	
 	@FXML
-	private TableView<ProfileTable> table;
+	BorderPane borderPane;
+	
+	@FXML
+	private TableView<MoviesAndSeriesTables> table;
 	
 	@FXML 
 	private Text moviesAmount, seriesAmount;
 	
 	@FXML
-	TableColumn<ProfileTable, String> movieCol, serieCol;
+	TableColumn<MoviesAndSeriesTables, String> movieCol, serieCol;
 	
 	@Override 
     public void initialize(URL location, ResourceBundle resources) {
@@ -41,24 +46,24 @@ public class YourProfileController implements Initializable {
 	
 	public void loadingTables(){
 		movieCol.setCellValueFactory(
-	            new PropertyValueFactory<ProfileTable, String>("movieTitle")
+	            new PropertyValueFactory<MoviesAndSeriesTables, String>("movieTitle")
 	        );
 		
 		serieCol.setCellValueFactory(
-	            new PropertyValueFactory<ProfileTable, String>("serieTitle")
+	            new PropertyValueFactory<MoviesAndSeriesTables, String>("serieTitle")
 	        );
 		
 		int amountMovies = MySQL.getAmountOfRows("movies");
 		int amountSeries = MySQL.getAmountOfRows("series");
 		int amount;
 		amount = (amountMovies > amountSeries) ? amountMovies : amountSeries;
-		ObservableList<ProfileTable> row = FXCollections.observableArrayList();
+		ObservableList<MoviesAndSeriesTables> row = FXCollections.observableArrayList();
 		String id, movieTitle, serieTitle;
 		for(int i=1; i <= amount; i++){
 			id = Integer.toString(i);
 			movieTitle = MySQL.getStringFromTable("movies", "title", i);
 			serieTitle = MySQL.getStringFromTable("series", "title", i);
-			row.add(new ProfileTable(id, movieTitle, serieTitle));
+			row.add(new MoviesAndSeriesTables(id, movieTitle, serieTitle));
 			table.setItems(row);
 		}
 	    
@@ -112,6 +117,28 @@ public class YourProfileController implements Initializable {
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
+	
+	  public void showAllMoviesList(ActionEvent event) throws IOException{
+		  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TopLists.fxml"));
+	        Parent home_page_parent = (Parent) fxmlLoader.load();
+	        TopListsController controller=fxmlLoader.<TopListsController>getController();
+	        controller.setIndex(1);
+	    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+	    	Stage app_stage =  (Stage) ((Node)borderPane).getScene().getWindow();
+	    	app_stage.setScene(home_page_scene);
+	    	app_stage.show();
+	 }
+	  
+	 public void showAllSeriesList(ActionEvent event) throws IOException{
+		  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TopLists.fxml"));
+	        Parent home_page_parent = (Parent) fxmlLoader.load();
+	        TopListsController controller=fxmlLoader.<TopListsController>getController();
+	        controller.setIndex(2);
+	    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+	    	Stage app_stage =  (Stage) ((Node)borderPane).getScene().getWindow();
+	    	app_stage.setScene(home_page_scene);
+	    	app_stage.show();
+	    }
 	
 	
 	
