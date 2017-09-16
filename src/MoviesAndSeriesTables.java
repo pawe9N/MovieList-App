@@ -1,4 +1,3 @@
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 public class MoviesAndSeriesTables {
@@ -6,8 +5,6 @@ public class MoviesAndSeriesTables {
 	private String id;
 	private String movieTitle;
 	private String serieTitle;
-	private Label labelMovieTitle;
-	private Label labelSerieTitle;
 	private ImageView movieCover;
 	private ImageView serieCover;
 	private int movieRating;
@@ -21,9 +18,10 @@ public class MoviesAndSeriesTables {
 		this.serieTitle = serieTitle;
 	}
 	
-	public MoviesAndSeriesTables(ImageView movieCover, Label labelMovieTitle, int movieRating){
+	public MoviesAndSeriesTables(String id, ImageView movieCover, String movieTitle, int movieRating){
+		this.id = id;
 		this.movieCover = movieCover;
-		this.labelMovieTitle = labelMovieTitle;
+		this.movieTitle = movieTitle;
 		this.movieRating = movieRating;
 	}
 	
@@ -81,22 +79,6 @@ public class MoviesAndSeriesTables {
 
 	public void setSerieRating(int serieRating) {
 		this.serieRating = serieRating;
-	}
-	
-	public Label getLabelMovieTitle() {
-		return labelMovieTitle;
-	}
-
-	public void setLabelMovieTitle(Label labelMovieTitle) {
-		this.labelMovieTitle = labelMovieTitle;
-	}
-
-	public Label getLabelSerieTitle() {
-		return labelSerieTitle;
-	}
-
-	public void setLabelSerieTitle(Label labelSerieTitle) {
-		this.labelSerieTitle = labelSerieTitle;
 	}
 
 	public ImageView getSerieCover() {

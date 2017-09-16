@@ -62,7 +62,7 @@
                         <Font size="36.0" />
                      </font>
                   </Text>
-                  <TableView fx:id="table" focusTraversable="false" layoutX="354.0" layoutY="90.0" prefHeight="400.0" prefWidth="525.0" styleClass="table">
+                  <TableView fx:id="table" focusTraversable="false" layoutX="354.0" layoutY="120.0" prefHeight="400.0" prefWidth="525.0" styleClass="table">
                     <columns>
                       <TableColumn fx:id="movieCol" editable="false" prefWidth="126.0" text="Movies" />
                         <TableColumn fx:id="serieCol" editable="false" prefWidth="195.0" text="Series" />

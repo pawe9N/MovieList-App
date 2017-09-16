@@ -1,8 +1,14 @@
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import com.sun.javafx.scene.control.skin.TableHeaderRow;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,26 +17,31 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+@SuppressWarnings("restriction")
 public class TopListsController implements Initializable {	
 	
 	@FXML
 	private TableView<MoviesAndSeriesTables> table;
+	
+	@FXML
+	private TableColumn<MoviesAndSeriesTables, Integer> movieId;
 
 	@FXML
 	private TableColumn<MoviesAndSeriesTables, ImageView> movieImage;
 	
 	@FXML
-	private TableColumn<MoviesAndSeriesTables, Label> movieTitle;
+	private TableColumn<MoviesAndSeriesTables, String> movieTitle;
 	
 	@FXML
 	private TableColumn<MoviesAndSeriesTables, Integer> movieRating;
@@ -43,86 +54,94 @@ public class TopListsController implements Initializable {
 	public void setIndex(int index){
 	    this.indexC.set(index);
 	    if(indexC.getValue().intValue()==1){
-	    	showAllMovies();
+	    	showAllMoviesList();
 	    }else if(indexC.getValue().intValue()==2){
-	    	showAllSeries();
+	    	showAllSeriesList();
 	    }
 	}
 	
 
 	@Override 
 	public void initialize(URL location, ResourceBundle resources) {
-	         System.out.println(indexC.getValue().intValue());
+	    
 	}
 	
-	
-	public void showAllMovies(){
+	public void showAllList(String tableName){
 		
 		pageTitle.setText("Movies List");
 		
+		movieId.setCellValueFactory(
+	            new PropertyValueFactory<MoviesAndSeriesTables, Integer>("id")
+	        );
+		
 		movieImage.setCellValueFactory(
 	            new PropertyValueFactory<MoviesAndSeriesTables, ImageView>("movieCover")
 	        );
 		
 		movieTitle.setCellValueFactory(
-	            new PropertyValueFactory<MoviesAndSeriesTables, Label>("movieTitle")
+	            new PropertyValueFactory<MoviesAndSeriesTables, String>("movieTitle")
 	        );
+		
+		setWrapCellFactory(movieTitle);
 		
 		movieRating.setCellValueFactory(
 	            new PropertyValueFactory<MoviesAndSeriesTables, Integer>("movieRating")
 	        );
 		
-		int amountMovies = MySQL.getAmountOfRows("movies");
 		ObservableList<MoviesAndSeriesTables> row = FXCollections.observableArrayList();
 		ImageView movieCover;
-		Label movieTitle;
-		String imgName;
-		Integer movieRating;
-		for(int i=1; i <= amountMovies; i++){
-			imgName = MySQL.getStringFromTable("movies", "imgName", i);
-			movieCover = new ImageView(new Image(imgName+".jpg"));
-			movieCover.setFitHeight(250);
-			movieCover.setFitWidth(200);
-			movieTitle = new Label(MySQL.getStringFromTable("movies", "title", i));
-			movieRating = Integer.parseInt( MySQL.getStringFromTable("movies", "rating", i));
-			row.add(new MoviesAndSeriesTables(movieCover, movieTitle, movieRating));
-			table.setItems(row);
-		}
+		String movieTitleS, imgName;
+		Integer movieRatingI, index=1;
+		
+		try{	
+			 Statement sqlState = MySQL.conn.createStatement();
+			 String selectStuff = "Select title, imgName, rating from "+tableName+" order by rating desc";
+			 ResultSet rows = sqlState.executeQuery(selectStuff);
+			 while(rows.next()){
+			    imgName = rows.getString("imgName");
+				movieCover = new ImageView(new Image(imgName+".jpg"));
+				movieCover.setFitHeight(200);
+				movieCover.setFitWidth(150);
+				movieTitleS = rows.getString("title");
+				movieRatingI = Integer.parseInt(rows.getString("rating"));
+				row.add(new MoviesAndSeriesTables("#"+index.toString(), movieCover, movieTitleS, movieRatingI));
+				table.setItems(row);
+				index++;
+			 }
+		 }
+		 catch (SQLException ex) {
+			 System.out.println("SQLException: " + ex.getMessage());
+			 System.out.println("VendorError: " + ex.getErrorCode()); 
+		 }
+
+		
+		table.widthProperty().addListener(new ChangeListener<Number>()
+		{
+			@Override
+		    public void changed(ObservableValue<? extends Number> source, Number oldWidth, Number newWidth)
+		    {
+				TableHeaderRow header = (TableHeaderRow) table.lookup("TableHeaderRow");
+		        header.reorderingProperty().addListener(new ChangeListener<Boolean>() {
+					@Override
+		            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+		                header.setReordering(false);
+		            }
+		        });
+		    }
+		});
 	}
-	
-public void showAllSeries(){
-		
-		pageTitle.setText("Series List");
-		
-		movieImage.setCellValueFactory(
-	            new PropertyValueFactory<MoviesAndSeriesTables, ImageView>("movieCover")
-	        );
-		
-		movieTitle.setCellValueFactory(
-	            new PropertyValueFactory<MoviesAndSeriesTables, Label>("movieTitle")
-	        );
-		
-		movieRating.setCellValueFactory(
-	            new PropertyValueFactory<MoviesAndSeriesTables, Integer>("movieRating")
-	        );
-		
-		int amountSeries = MySQL.getAmountOfRows("series");
-		ObservableList<MoviesAndSeriesTables> row = FXCollections.observableArrayList();
-		ImageView movieCover;
-		Label movieTitle;
-		String imgName;
-		Integer movieRating;
-		for(int i=1; i <= amountSeries; i++){
-			imgName = MySQL.getStringFromTable("series", "imgName", i);
-			movieCover = new ImageView(new Image(imgName+".jpg"));
-			movieCover.setFitHeight(250);
-			movieCover.setFitWidth(200);
-			movieTitle = new Label(MySQL.getStringFromTable("series", "title", i));
-			System.out.println(movieTitle);
-			movieRating = Integer.parseInt( MySQL.getStringFromTable("series", "rating", i));
-			row.add(new MoviesAndSeriesTables(movieCover, movieTitle, movieRating));
-			table.setItems(row);
-		}
+
+	private void setWrapCellFactory(TableColumn<MoviesAndSeriesTables, String> table) {
+	    table.setCellFactory(tablecol -> {
+	        TableCell<MoviesAndSeriesTables, String> cell = new TableCell<>();
+	        Text text = new Text();
+	        cell.setGraphic(text);
+	        text.wrappingWidthProperty().bind(cell.widthProperty());
+	        text.setStyle("-fx-text-alignment: center;");
+	        text.setFill(Color.WHITE);
+	        text.textProperty().bind(cell.itemProperty());
+	        return cell;
+	    });
 	}
 	
 	public void showYourProfile(MouseEvent event) throws IOException{
@@ -154,4 +173,12 @@ public void showAllSeries(){
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
+	
+	public void showAllMoviesList(){
+		showAllList("movies");
+	}
+	
+	public void showAllSeriesList(){
+		showAllList("series");
+	}
 }

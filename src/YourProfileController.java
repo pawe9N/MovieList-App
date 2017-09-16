@@ -138,8 +138,5 @@ public class YourProfileController implements Initializable {
 	    	Stage app_stage =  (Stage) ((Node)borderPane).getScene().getWindow();
 	    	app_stage.setScene(home_page_scene);
 	    	app_stage.show();
-	    }
-	
-	
-	
+	    }	
 }
