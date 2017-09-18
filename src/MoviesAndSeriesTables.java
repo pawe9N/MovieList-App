@@ -5,12 +5,10 @@ public class MoviesAndSeriesTables {
 	private String id;
 	private String movieTitle;
 	private String serieTitle;
-	private ImageView movieCover;
-	private ImageView serieCover;
-	private int movieRating;
-	private int serieRating;
-	
-	private ImageView seriesCover;
+	private String title;
+	private String country;
+	private ImageView cover;
+	private String rating;
 	
 	public MoviesAndSeriesTables(String id, String movieTitle, String serieTitle){
 		this.id = id;
@@ -18,11 +16,12 @@ public class MoviesAndSeriesTables {
 		this.serieTitle = serieTitle;
 	}
 	
-	public MoviesAndSeriesTables(String id, ImageView movieCover, String movieTitle, int movieRating){
+	public MoviesAndSeriesTables(String id, ImageView movieCover, String title, String country, String rating){
 		this.id = id;
-		this.movieCover = movieCover;
-		this.movieTitle = movieTitle;
-		this.movieRating = movieRating;
+		this.cover = movieCover;
+		this.title = title;
+		this.country = country;
+		this.rating = rating;
 	}
 	
 	public String getId() {
@@ -49,45 +48,36 @@ public class MoviesAndSeriesTables {
 		this.serieTitle = serieTitle;
 	}
 	
-	public ImageView getMovieCover() {
-		return movieCover;
+	public ImageView getCover() {
+		return cover;
 	}
 
-	public void setMovieCover(ImageView movieCover) {
-		this.movieCover = movieCover;
+	public void setCover(ImageView movieCover) {
+		this.cover = movieCover;
 	}
 
-	public ImageView getSeriesCover() {
-		return seriesCover;
+	public String getRating() {
+		return rating;
 	}
 
-	public void setSeriesCover(ImageView seriesCover) {
-		this.seriesCover = seriesCover;
+	public void setRating(String movieRating) {
+		this.rating = movieRating;
 	}
 	
-	public int getMovieRating() {
-		return movieRating;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setMovieRating(int movieRating) {
-		this.movieRating = movieRating;
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	
+	public String getTitle() {
+		return title;
 	}
 
-	public int getSerieRating() {
-		return serieRating;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-
-	public void setSerieRating(int serieRating) {
-		this.serieRating = serieRating;
-	}
-
-	public ImageView getSerieCover() {
-		return serieCover;
-	}
-
-	public void setSerieCover(ImageView serieCover) {
-		this.serieCover = serieCover;
-	}
-
 
 }

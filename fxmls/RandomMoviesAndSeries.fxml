@@ -10,30 +10,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" styleClass="root" stylesheets="@Scene.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" styleClass="root" stylesheets="@../styles/RandomMoviesAndSeries.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RandomMoviesAndSeriesController">
    <left>
       <VBox styleClass="vbox" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onMouseClicked="#showYourProfile" prefHeight="131.0" prefWidth="101.0" text="Your Profile" />
             <MenuButton fx:id="myTopLists" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Top Lists" textAlignment="CENTER">
               <items>
-                <MenuItem fx:id="myAllTopLists" mnemonicParsing="false" onAction="#showAllMoviesList" text="All Movies" />
-                <MenuItem onAction="#showAllSeriesList" mnemonicParsing="false" text="All Series" />
-                  <MenuItem mnemonicParsing="false" text="Watched Movies" />
-                  <MenuItem mnemonicParsing="false" text="Wartched Series" />
+                <MenuItem mnemonicParsing="false" onAction="#showAllMoviesList" text="Watched Movies" />
+                <MenuItem mnemonicParsing="false" onAction="#showAllSeriesList" text="Watched Series" />
               </items>
             </MenuButton>
-            <Button mnemonicParsing="false" onMouseClicked="#showMoviesListClick" prefHeight="25.0" prefWidth="108.0" text="Movie LIst" />
-            <Button mnemonicParsing="false" onMouseClicked="#showSeriesListClick" prefHeight="25.0" prefWidth="110.0" text="Series List" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="153.0" text="Watched" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="To Watch" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Watching" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Search" />
+            <Button mnemonicParsing="false" onMouseClicked="#showMoviesListClick" prefHeight="25.0" prefWidth="108.0" text="Random Movies" />
+            <Button mnemonicParsing="false" onMouseClicked="#showSeriesListClick" prefHeight="25.0" prefWidth="110.0" text="Random Series" />
+            <Button mnemonicParsing="false" onMouseClicked="#showWatched" prefHeight="25.0" prefWidth="153.0" text="Watched" />
+            <Button mnemonicParsing="false" onMouseClicked="#showWatching" prefHeight="25.0" prefWidth="105.0" text="Watching" />
+            <Button mnemonicParsing="false" onMouseClicked="#showToWatch" prefHeight="25.0" prefWidth="112.0" text="To Watch" />
+            <Button mnemonicParsing="false" onMouseClicked="#showSearch" prefHeight="25.0" prefWidth="103.0" text="Search" />
             <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Edit List">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Add to list" />
-                  <MenuItem mnemonicParsing="false" text="Change row" />
-                  <MenuItem mnemonicParsing="false" text="Delete row" />
+                  <MenuItem onAction="#showAddNew" mnemonicParsing="false" text="Add to list" />
+                  <MenuItem onAction="#showUpdate" mnemonicParsing="false" text="Change row" />
+                  <MenuItem onAction="#showDelete" mnemonicParsing="false" text="Delete row" />
                </items>
             </MenuButton>
          </children>

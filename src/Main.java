@@ -15,12 +15,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
     	FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("Scene.fxml"));
+        loader.setLocation(Main.class.getResource("RandomMoviesAndSeries.fxml"));
         primaryStage.setTitle("Movie App");
         primaryStage.setResizable(false);
         Parent root = loader.load();
         scene = new Scene(root, 1280, 720);
-        scene.getStylesheets().add(getClass().getResource("Scene.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("RandomMoviesAndSeries.css").toExternalForm());
         scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Bowlby+One+SC");
         
         primaryStage.setScene(scene);

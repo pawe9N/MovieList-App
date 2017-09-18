@@ -1,3 +1,4 @@
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
@@ -24,7 +25,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {	
+public class RandomMoviesAndSeriesController implements Initializable {	
 	
 	@FXML
 	VBox vbox1, vbox2, vbox3, vbox4, vbox5, vbox6, vbox7, vbox8, vbox9;
@@ -222,6 +223,73 @@ public class Controller implements Initializable {
     	app_stage.show();
     }
     
-
+    public void showWatched(MouseEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WatchedWatchingToWatch.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+        WatchedWatchingToWatchController controller=fxmlLoader.<WatchedWatchingToWatchController>getController();
+        controller.setIndex(1);
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showWatching(MouseEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WatchedWatchingToWatch.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+        WatchedWatchingToWatchController controller=fxmlLoader.<WatchedWatchingToWatchController>getController();
+        controller.setIndex(2);
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showToWatch(MouseEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WatchedWatchingToWatch.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+        WatchedWatchingToWatchController controller=fxmlLoader.<WatchedWatchingToWatchController>getController();
+        controller.setIndex(3);
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showSearch(MouseEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Search.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showAddNew(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Add.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)vbox1).getScene().getWindow();
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showUpdate(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Update.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)vbox1).getScene().getWindow();
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showDelete(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Delete.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)vbox1).getScene().getWindow();
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
 
 }

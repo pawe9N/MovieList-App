@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" styleClass="root" stylesheets="@../styles/Add.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddController">
+   <left>
+      <VBox styleClass="vbox" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#showYourProfile" prefHeight="131.0" prefWidth="101.0" text="Your Profile" />
+            <MenuButton fx:id="myTopLists" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Top Lists" textAlignment="CENTER">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#showAllMoviesList" text="Watched Movies" />
+                <MenuItem mnemonicParsing="false" onAction="#showAllSeriesList" text="Watched Series" />
+              </items>
+            </MenuButton>
+            <Button mnemonicParsing="false" onMouseClicked="#showMoviesListClick" prefHeight="25.0" prefWidth="108.0" text="Random Movies" />
+            <Button mnemonicParsing="false" onMouseClicked="#showSeriesListClick" prefHeight="25.0" prefWidth="110.0" text="Random Series" />
+            <Button mnemonicParsing="false" onMouseClicked="#showWatched" prefHeight="25.0" prefWidth="153.0" text="Watched" />
+            <Button mnemonicParsing="false" onMouseClicked="#showWatching" prefHeight="25.0" prefWidth="105.0" text="Watching" />
+            <Button mnemonicParsing="false" onMouseClicked="#showToWatch" prefHeight="25.0" prefWidth="112.0" text="To Watch" />
+            <Button mnemonicParsing="false" onMouseClicked="#showSearch" prefHeight="25.0" prefWidth="103.0" text="Search" />
+            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Edit List">
+               <items>
+                  <MenuItem onAction="#showAddNew" mnemonicParsing="false" text="Add to list" />
+                  <MenuItem onAction="#showUpdate" mnemonicParsing="false" text="Change row" />
+                  <MenuItem onAction="#showDelete" mnemonicParsing="false" text="Delete row" />
+               </items>
+            </MenuButton>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox fx:id="hbox" prefHeight="100.0" prefWidth="200.0" styleClass="hbox" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="100.0" text="Movie App" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
