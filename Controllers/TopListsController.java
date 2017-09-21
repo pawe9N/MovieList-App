@@ -40,7 +40,7 @@ public class TopListsController implements Initializable {
 	private TableColumn<MoviesAndSeriesTables, ImageView> Image;
 	
 	@FXML
-	private TableColumn<MoviesAndSeriesTables, String> Title, Country, Rating;
+	private TableColumn<MoviesAndSeriesTables, String> Title, Country, Rating, Genre;
 	
 	@FXML
 	private TableColumn<MoviesAndSeriesTables, Integer> Id;
@@ -83,6 +83,12 @@ public class TopListsController implements Initializable {
 		
 		setWrapCellFactory(Title);
 		
+		Genre.setCellValueFactory(
+	            new PropertyValueFactory<MoviesAndSeriesTables, String>("genre")
+	        );
+		
+		setWrapCellFactory(Genre);
+		
 		Country.setCellValueFactory(
 	            new PropertyValueFactory<MoviesAndSeriesTables, String>("country")
 	        );
@@ -93,12 +99,12 @@ public class TopListsController implements Initializable {
 		
 		ObservableList<MoviesAndSeriesTables> row = FXCollections.observableArrayList();
 		ImageView cover;
-		String title, imgName, country, rating;
+		String title, imgName, country, rating, genre;
 		Integer index=1;
 		
 		try{	
 			 Statement sqlState = MySQL.conn.createStatement();
-			 String selectStuff = "Select title, imgName, country, rating from "+tableName+" order by rating desc";
+			 String selectStuff = "Select title, genre, imgName, country, rating from "+tableName+" order by rating desc";
 			 ResultSet rows = sqlState.executeQuery(selectStuff);
 			 while(rows.next()){
 			    imgName = rows.getString("imgName");
@@ -106,9 +112,10 @@ public class TopListsController implements Initializable {
 			    cover.setFitHeight(150);
 			    cover.setFitWidth(100);
 				title = rows.getString("title");
+				genre = rows.getString("genre").replaceAll(",", "");
 			    country = rows.getString("country");
 				rating = rows.getString("rating");
-				row.add(new MoviesAndSeriesTables("#"+index.toString(), cover, title, country, rating+"/10"));
+				row.add(new MoviesAndSeriesTables("#"+index.toString(), cover, title, genre, country, rating+"/10"));
 				table.setItems(row);
 				index++;
 			 }

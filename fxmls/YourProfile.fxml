@@ -29,9 +29,9 @@
             <Button mnemonicParsing="false" onMouseClicked="#showSearch" prefHeight="25.0" prefWidth="103.0" text="Search" />
             <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Edit List">
                <items>
-                  <MenuItem onAction="#showAddNew" mnemonicParsing="false" text="Add to list" />
-                  <MenuItem onAction="#showUpdate" mnemonicParsing="false" text="Change row" />
-                  <MenuItem onAction="#showDelete" mnemonicParsing="false" text="Delete row" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAddNew" text="Add to list" />
+                  <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change row" />
+                  <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete row" />
                </items>
             </MenuButton>
          </children>
@@ -50,12 +50,7 @@
             <AnchorPane layoutX="86.0" layoutY="62.0" prefHeight="520.0" prefWidth="904.0" styleClass="profile">
                <children>
                   <AnchorPane layoutX="44.0" layoutY="37.0" prefHeight="224.0" prefWidth="235.0" styleClass="awatar" />
-                  <Text fill="WHITE" layoutX="50.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name" text="Paweł" textAlignment="CENTER" wrappingWidth="222.13671875">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="50.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Surname" text="Nadachowski" textAlignment="CENTER" wrappingWidth="222.13671875">
+                  <Text fill="WHITE" layoutX="50.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name" text="pawe9N" textAlignment="CENTER" wrappingWidth="222.13671875">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -72,29 +67,29 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Text fill="WHITE" layoutX="505.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Lists" textAlignment="CENTER" wrappingWidth="222.13671875">
+                  <Text styleClass="watched" fill="WHITE" layoutX="505.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Watched" textAlignment="CENTER" wrappingWidth="222.13671875">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="50.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" textAlignment="CENTER" wrappingWidth="222.13671875">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="50.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" textAlignment="CENTER" wrappingWidth="222.13671875">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="moviesAmount" fill="WHITE" layoutX="383.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:" textAlignment="CENTER" wrappingWidth="222.13671875">
+                  <Text fx:id="moviesAmount" styleClass="moviesAmount" fill="WHITE" layoutX="383.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:" textAlignment="CENTER" wrappingWidth="222.13671875">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <Text fx:id="seriesAmount" fill="WHITE" layoutX="627.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:" textAlignment="CENTER" wrappingWidth="222.13671875">
+                  <Text fx:id="seriesAmount" styleClass="seriesAmount" fill="WHITE" layoutX="627.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:" textAlignment="CENTER" wrappingWidth="222.13671875">
                      <font>
                         <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="toWatchAmount" styleClass="toWatchAmount" fill="WHITE" layoutX="22.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="277.13671875">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="watchingAmount" fill="WHITE" layoutX="21.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="watchingAmount" textAlignment="CENTER" wrappingWidth="281.13671875">
+                     <font>
+                        <Font size="36.0" />
                      </font>
                   </Text>
                </children>

@@ -112,3 +112,13 @@
     -fx-border-color: #293256;
     -fx-font-size: 13px;
 }
+
+.toWatchAmount, .watchingAmount, .watched, .moviesAmount, .seriesAmount{
+	-fx-font-family: 'Bowlby One SC', cursive;
+}
+
+.name{
+	-fx-font-family: Verdana;
+	 -fx-underline: true;
+	-fx-font-size: 30pt;
+}

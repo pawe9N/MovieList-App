@@ -29,9 +29,9 @@
             <Button mnemonicParsing="false" onMouseClicked="#showSearch" prefHeight="25.0" prefWidth="103.0" text="Search" />
             <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Edit List">
                <items>
-                  <MenuItem onAction="#showAddNew" mnemonicParsing="false" text="Add to list" />
-                  <MenuItem onAction="#showUpdate" mnemonicParsing="false" text="Change row" />
-                  <MenuItem onAction="#showDelete" mnemonicParsing="false" text="Delete row" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAddNew" text="Add to list" />
+                  <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change row" />
+                  <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete row" />
                </items>
             </MenuButton>
          </children>
@@ -57,6 +57,7 @@
                   <TableColumn fx:id="Id" editable="false" prefWidth="75.0" sortable="false" text="Id" />
                   <TableColumn fx:id="Image" editable="false" prefWidth="283.0" sortable="false" styleClass="movieImage" text="Image" />
                   <TableColumn fx:id="Title" editable="false" minWidth="0.0" prefWidth="348.0" sortable="false" text="Title" />
+                  <TableColumn fx:id="Genre" editable="false" prefWidth="75.0" sortable="false" text="Genre" />
                   <TableColumn fx:id="Country" editable="false" prefWidth="75.0" sortable="false" text="Country" />
                   <TableColumn fx:id="Rating" editable="false" prefWidth="201.0" sortType="DESCENDING" sortable="false" text="Rating" />
                </columns>

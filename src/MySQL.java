@@ -74,6 +74,27 @@ public class MySQL {
 		 return "Error";
 	 }
 	 
+	 public static String getWatchedFromTable(String table, String sth, int id){	 
+		 try{	
+			 Statement sqlState = conn.createStatement();
+			 String selectStuff = "Select "+ sth + " from "+table+" where watched=true";
+			 ResultSet rows = sqlState.executeQuery(selectStuff);
+			 int i = 1;
+			 while(rows.next()){
+				 if(i==id){
+					 if(sth == "description") return "     " + rows.getString(sth);
+					 else return rows.getString(sth);
+				 }
+				 i++;
+			 }
+		 }
+		 catch (SQLException ex) {
+			 System.out.println("SQLException: " + ex.getMessage());
+			 System.out.println("VendorError: " + ex.getErrorCode()); 
+		 }
+		 return "";
+	 }
+	 
 	 public static int getIntFromTable(String table, String sth, int id){	 
 		 try{	
 			 Statement sqlState = conn.createStatement();
@@ -105,5 +126,52 @@ public class MySQL {
 		 }
 		 return -1;
 	 }
-		 
+	 
+	 public static int getAmountOfWatched(String table){
+		 try{	
+			 Statement sqlState = conn.createStatement();
+			 String selectStuff = "Select count(*) as amount from " + table +" where watched=true";
+			 ResultSet rows = sqlState.executeQuery(selectStuff);
+			 while(rows.next()){
+				 return rows.getInt("amount");
+			 }
+		 }
+		 catch (SQLException ex) {
+			 System.out.println("SQLException: " + ex.getMessage());
+			 System.out.println("VendorError: " + ex.getErrorCode()); 
+		 }
+		 return -1;
+	 }
+	 
+	 public static int getAmountOfWatching(){
+		 try{	
+			 Statement sqlState = conn.createStatement();
+			 String selectStuff = "Select count(*) as amount from series where watching=true";
+			 ResultSet rows = sqlState.executeQuery(selectStuff);
+			 while(rows.next()){
+				 return rows.getInt("amount");
+			 }
+		 }
+		 catch (SQLException ex) {
+			 System.out.println("SQLException: " + ex.getMessage());
+			 System.out.println("VendorError: " + ex.getErrorCode()); 
+		 }
+		 return -1;
+	 }
+	
+	 public static int getAmountOfToWatch(String table){
+		 try{	
+			 Statement sqlState = conn.createStatement();
+			 String selectStuff = "Select count(*) as amount from " + table +" where toWatch=true";
+			 ResultSet rows = sqlState.executeQuery(selectStuff);
+			 while(rows.next()){
+				 return rows.getInt("amount");
+			 }
+		 }
+		 catch (SQLException ex) {
+			 System.out.println("SQLException: " + ex.getMessage());
+			 System.out.println("VendorError: " + ex.getErrorCode()); 
+		 }
+		 return -1;
+	 }
 } 

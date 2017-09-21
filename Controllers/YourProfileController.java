@@ -33,7 +33,7 @@ public class YourProfileController implements Initializable {
 	private TableView<MoviesAndSeriesTables> table;
 	
 	@FXML 
-	private Text moviesAmount, seriesAmount;
+	private Text moviesAmount, seriesAmount, watchingAmount, toWatchAmount;
 	
 	@FXML
 	TableColumn<MoviesAndSeriesTables, String> movieCol, serieCol;
@@ -53,22 +53,24 @@ public class YourProfileController implements Initializable {
 	            new PropertyValueFactory<MoviesAndSeriesTables, String>("serieTitle")
 	        );
 		
-		int amountMovies = MySQL.getAmountOfRows("movies");
-		int amountSeries = MySQL.getAmountOfRows("series");
+		int amountMovies = MySQL.getAmountOfWatched("movies");
+		int amountSeries = MySQL.getAmountOfWatched("series");
 		int amount;
 		amount = (amountMovies > amountSeries) ? amountMovies : amountSeries;
 		ObservableList<MoviesAndSeriesTables> row = FXCollections.observableArrayList();
 		String id, movieTitle, serieTitle;
 		for(int i=1; i <= amount; i++){
 			id = Integer.toString(i);
-			movieTitle = MySQL.getStringFromTable("movies", "title", i);
-			serieTitle = MySQL.getStringFromTable("series", "title", i);
+			movieTitle = MySQL.getWatchedFromTable("movies", "title", i);
+			serieTitle = MySQL.getWatchedFromTable("series", "title", i);
 			row.add(new MoviesAndSeriesTables(id, movieTitle, serieTitle));
 			table.setItems(row);
 		}
 	    
 		moviesAmount.setText("Movies: "+Integer.toString(amountMovies));
 		seriesAmount.setText("Series: "+Integer.toString(amountSeries));
+		watchingAmount.setText("Watching: " + Integer.toString(MySQL.getAmountOfWatching()));
+		toWatchAmount.setText("To Watch: " + Integer.toString(MySQL.getAmountOfToWatch("movies")+MySQL.getAmountOfToWatch("series")));
 		
 		table.widthProperty().addListener(new ChangeListener<Number>()
 		{

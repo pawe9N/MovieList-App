@@ -17,10 +17,11 @@ public class MoviesAndSeriesTables {
 		this.serieTitle = serieTitle;
 	}
 	
-	public MoviesAndSeriesTables(String id, ImageView movieCover, String title, String country, String rating){
+	public MoviesAndSeriesTables(String id, ImageView movieCover, String title, String genre, String country, String rating){
 		this.id = id;
 		this.cover = movieCover;
 		this.title = title;
+		this.genre = genre;
 		this.country = country;
 		this.rating = rating;
 	}

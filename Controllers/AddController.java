@@ -42,10 +42,10 @@ public class AddController implements Initializable {
 	@Override 
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		
 		submit.setOnAction(e -> {
 				
 				submitBool = inputvalidation();
+				
 				if(submitBool){
 					System.out.println("AAAA");
 				}else{
