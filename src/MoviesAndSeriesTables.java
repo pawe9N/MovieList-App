@@ -9,7 +9,8 @@ public class MoviesAndSeriesTables {
 	private String country;
 	private ImageView cover;
 	private String rating;
-	
+	private String genre;
+
 	public MoviesAndSeriesTables(String id, String movieTitle, String serieTitle){
 		this.id = id;
 		this.movieTitle = movieTitle;
@@ -78,6 +79,14 @@ public class MoviesAndSeriesTables {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 
 }

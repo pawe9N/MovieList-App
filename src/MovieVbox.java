@@ -21,8 +21,8 @@ public class MovieVbox {
 	protected String country;
 	protected int rating;
 	private int runtime;
-	
-	
+	protected String genre;
+
 	public MovieVbox(VBox vbox){
 		this.vboxMovie = vbox;
 	}
@@ -182,6 +182,14 @@ public class MovieVbox {
 
 	public void setRuntimeText(Text runtimeText) {
 		this.runtimeText = runtimeText;
+	}
+	
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	
 }

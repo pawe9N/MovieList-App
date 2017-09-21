@@ -8,8 +8,6 @@ public class SeriesVbox extends MovieVbox {
 	private int episodes;
 	private int seasons;
 	
-	
-	
 	public SeriesVbox(VBox vboxSerie){
 		super(vboxSerie);
 	}

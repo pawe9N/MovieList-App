@@ -83,3 +83,6 @@
 .menu-button .text{
 	-fx-text-alignment: center;
 }
+.anchorImage{
+	-fx-background-size: cover;
+}
