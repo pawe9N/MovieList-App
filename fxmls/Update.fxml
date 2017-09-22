@@ -48,7 +48,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutX="433.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Row " textAlignment="CENTER">
+            <Text fill="WHITE" layoutX="442.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Row " textAlignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>
@@ -87,6 +87,11 @@
                   <Font size="24.0" />
                </font>
             </Button>
+            <Text fx:id="message" fill="WHITE" layoutX="444.0" layoutY="587.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="200.1328125">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </center>

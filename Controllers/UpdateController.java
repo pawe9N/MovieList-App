@@ -1,7 +1,8 @@
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
-
+import com.mysql.jdbc.PreparedStatement;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,12 +17,15 @@ import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class UpdateController implements Initializable {
 	
 	@FXML Button submit;
-	@FXML private HBox hbox;	
+	@FXML HBox hbox;
+	@FXML Text message;
 	@FXML TextField newValue, title;
 	@FXML SplitMenuButton tableMenu, columnMenu;
 	@FXML MenuItem tableMenuMovies, tableMenuSeries;
@@ -79,10 +83,30 @@ public class UpdateController implements Initializable {
 	    	titleString = title.getText();
 	    	newValueString = newValue.getText();
 	    	
-	    	if(table != "" || column != "" || titleString != "" || newValueString !=""){
-	    		
+	    	if(titleString.length() !=0 && newValueString.length()!=0){
+	    			String query = "update "+table+" set "+column+" = ? where title='"+titleString+"';";
+	    			try {
+						PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+						if(column == "watching" || column == "to watch" || column == "watching")
+							statement.setBoolean(1, Boolean.parseBoolean(newValueString));
+						else
+							statement.setString(1,newValueString);
+						statement.executeUpdate();
+						title.setText("");
+						newValue.setText("");
+						table=column=titleString=newValueString="";
+						message.setText("Added movie to database!");
+					    message.setFill(Color.GREEN);
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+						message.setText("Can't send values to database!");
+						message.setFill(Color.RED);
+					}
+
+    			 
 	    	}else{
-	    		
+	    		message.setText("Input correct values!");
+				message.setFill(Color.RED);
 	    	}
 	    	
 	    });
