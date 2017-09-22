@@ -93,6 +93,8 @@ public class TopListsController implements Initializable {
 	            new PropertyValueFactory<MoviesAndSeriesTables, String>("country")
 	        );
 		
+		setWrapCellFactory(Country);
+		
 		Rating.setCellValueFactory(
 	            new PropertyValueFactory<MoviesAndSeriesTables, String>("rating")
 	        );
@@ -104,7 +106,7 @@ public class TopListsController implements Initializable {
 		
 		try{	
 			 Statement sqlState = MySQL.conn.createStatement();
-			 String selectStuff = "Select title, genre, imgName, country, rating from "+tableName+" order by rating desc";
+			 String selectStuff = "Select title, genre, imgName, country, rating from "+tableName+" where watched=true order by rating desc";
 			 ResultSet rows = sqlState.executeQuery(selectStuff);
 			 while(rows.next()){
 			    imgName = rows.getString("imgName");
@@ -192,7 +194,30 @@ public class TopListsController implements Initializable {
 	public void showAllSeriesList(){
 		showAllList("series");
 	}
-	
+    
+    public void showAllMoviesList(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TopLists.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+        TopListsController controller=fxmlLoader.<TopListsController>getController();
+        controller.setIndex(1);
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)pageTitle).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("TopLists.css").toExternalForm());
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showAllSeriesList(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TopLists.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+        TopListsController controller=fxmlLoader.<TopListsController>getController();
+        controller.setIndex(2);
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)pageTitle).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("TopLIsts.css").toExternalForm());
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
     
     public void showWatched(MouseEvent event) throws IOException{
 	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WatchedWatchingToWatch.fxml"));
@@ -201,6 +226,7 @@ public class TopListsController implements Initializable {
         controller.setIndex(1);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("WatchedWatchingToWatch.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -212,6 +238,7 @@ public class TopListsController implements Initializable {
         controller.setIndex(2);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("WatchedWatchingToWatch.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -223,6 +250,7 @@ public class TopListsController implements Initializable {
         controller.setIndex(3);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("WatchedWatchingToWatch.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -232,15 +260,31 @@ public class TopListsController implements Initializable {
         Parent home_page_parent = (Parent) fxmlLoader.load();
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("Search.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
     
-    public void showAddNew(ActionEvent event) throws IOException{
-	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Add.fxml"));
+    public void showAddMovieNew(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddMovie.fxml"));
         Parent home_page_parent = (Parent) fxmlLoader.load();
+        AddController controller=fxmlLoader.<AddController>getController();
+        controller.setIndex(1);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
-    	Stage app_stage =  (Stage) ((Node)table).getScene().getWindow();
+    	Stage app_stage =  (Stage) ((Node)pageTitle).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("Add.css").toExternalForm());
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showAddSeriesNew(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddSeries.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+        AddController controller=fxmlLoader.<AddController>getController();
+        controller.setIndex(2);
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)pageTitle).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("Add.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -249,7 +293,8 @@ public class TopListsController implements Initializable {
 	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Update.fxml"));
         Parent home_page_parent = (Parent) fxmlLoader.load();
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
-    	Stage app_stage =  (Stage) ((Node)table).getScene().getWindow();
+    	Stage app_stage =  (Stage) ((Node)pageTitle).getScene().getWindow();
+        home_page_scene.getStylesheets().add(getClass().getResource("Update.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -258,7 +303,8 @@ public class TopListsController implements Initializable {
 	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Delete.fxml"));
         Parent home_page_parent = (Parent) fxmlLoader.load();
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
-    	Stage app_stage =  (Stage) ((Node)table).getScene().getWindow();
+    	Stage app_stage =  (Stage) ((Node)pageTitle).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("Delete.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }

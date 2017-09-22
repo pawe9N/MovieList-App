@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,18 +10,82 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class UpdateController implements Initializable {
 	
-	@FXML
-	private HBox hbox;
-
+	@FXML Button submit;
+	@FXML private HBox hbox;	
+	@FXML TextField newValue, title;
+	@FXML SplitMenuButton tableMenu, columnMenu;
+	@FXML MenuItem tableMenuMovies, tableMenuSeries;
+	String [] movieColumns = {"title", "imgName", "genre", "premiere", "country", "watched", "to watch", "rating", "runtime", "description"};
+	String [] seriesColumns = {"title", "imgName", "genre", "seasons", "country", "watched", "to watch", "rating", "episodes", "description", "watching"};
+	ObservableList<MenuItem> columnList;
 	@Override 
 	public void initialize(URL location, ResourceBundle resources) {
+	    tableMenu.setText(tableMenu.getItems().get(0).getText());
+	    for(int j=0; j < movieColumns.length; j++){
+			MenuItem item = new MenuItem(movieColumns[j]);
+			columnMenu.getItems().add(item);
+			columnMenu.getItems().get(j).setOnAction(ev ->{
+				columnMenu.setText(((MenuItem)ev.getSource()).getText());
+			});
+		}
+	    columnMenu.setText(columnMenu.getItems().get(0).getText());
+	    columnList = columnMenu.getItems();
 	    
+	    for(int i=0; i < tableMenu.getItems().size(); i++){
+	    	tableMenu.getItems().get(i).setOnAction(e -> {
+	    		tableMenu.setText(((MenuItem)e.getSource()).getText());
+	    		if(tableMenu.getText().contains("movies")){	
+	    			columnMenu.getItems().removeAll(columnList);
+	    			columnList.clear();
+	    			for(int j=0; j < movieColumns.length; j++){
+	    				MenuItem item = new MenuItem(movieColumns[j]);
+	    				columnMenu.getItems().add(item);
+		    			columnMenu.getItems().get(j).setOnAction(ev ->{
+		    				columnMenu.setText(((MenuItem)ev.getSource()).getText());
+		    			});
+	    			}
+	    			columnList = columnMenu.getItems();
+	    			columnMenu.setText(columnMenu.getItems().get(0).getText());
+	    		}else{
+	    			columnMenu.getItems().removeAll(columnList);
+	    			columnList.clear();
+	    			for(int j=0; j < seriesColumns.length; j++){
+	    				MenuItem item = new MenuItem(seriesColumns[j]);
+	    				columnMenu.getItems().add(item);
+		    			columnMenu.getItems().get(j).setOnAction(ev ->{
+		    				columnMenu.setText(((MenuItem)ev.getSource()).getText());
+		    			});
+	    			}
+	    			columnMenu.setText(columnMenu.getItems().get(0).getText());
+	    			columnList = columnMenu.getItems();
+	    		}
+	    	});
+	    }
+	    
+	    submit.setOnAction(e -> {
+	    	String table, column, titleString, newValueString;
+	    	table = tableMenu.getText();
+	    	column = columnMenu.getText();
+	    	titleString = title.getText();
+	    	newValueString = newValue.getText();
+	    	
+	    	if(table != "" || column != "" || titleString != "" || newValueString !=""){
+	    		
+	    	}else{
+	    		
+	    	}
+	    	
+	    });
 	}
 	
     
@@ -28,6 +94,7 @@ public class UpdateController implements Initializable {
         Parent home_page_parent = (Parent) fxmlLoader.load();
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("YourProfile.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -39,6 +106,7 @@ public class UpdateController implements Initializable {
         controller.setIndex(1);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("RandomMoviesAndSeries.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -50,6 +118,7 @@ public class UpdateController implements Initializable {
         controller.setIndex(2);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("RandomMoviesAndSeries.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -61,6 +130,7 @@ public class UpdateController implements Initializable {
         controller.setIndex(1);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)hbox).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("TopLists.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -72,6 +142,7 @@ public class UpdateController implements Initializable {
         controller.setIndex(2);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)hbox).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("TopLIsts.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -83,6 +154,7 @@ public class UpdateController implements Initializable {
         controller.setIndex(1);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("WatchedWatchingToWatch.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -94,6 +166,7 @@ public class UpdateController implements Initializable {
         controller.setIndex(2);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("WatchedWatchingToWatch.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -105,6 +178,7 @@ public class UpdateController implements Initializable {
         controller.setIndex(3);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("WatchedWatchingToWatch.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -114,15 +188,31 @@ public class UpdateController implements Initializable {
         Parent home_page_parent = (Parent) fxmlLoader.load();
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("Search.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
     
-    public void showAddNew(ActionEvent event) throws IOException{
-	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Add.fxml"));
+    public void showAddMovieNew(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddMovie.fxml"));
         Parent home_page_parent = (Parent) fxmlLoader.load();
+        AddController controller=fxmlLoader.<AddController>getController();
+        controller.setIndex(1);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)hbox).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("Add.css").toExternalForm());
+    	app_stage.setScene(home_page_scene);
+    	app_stage.show();
+    }
+    
+    public void showAddSeriesNew(ActionEvent event) throws IOException{
+	  	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddSeries.fxml"));
+        Parent home_page_parent = (Parent) fxmlLoader.load();
+        AddController controller=fxmlLoader.<AddController>getController();
+        controller.setIndex(2);
+    	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
+    	Stage app_stage =  (Stage) ((Node)hbox).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("Add.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -132,6 +222,7 @@ public class UpdateController implements Initializable {
         Parent home_page_parent = (Parent) fxmlLoader.load();
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)hbox).getScene().getWindow();
+        home_page_scene.getStylesheets().add(getClass().getResource("Update.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }
@@ -141,6 +232,7 @@ public class UpdateController implements Initializable {
         Parent home_page_parent = (Parent) fxmlLoader.load();
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)hbox).getScene().getWindow();
+    	home_page_scene.getStylesheets().add(getClass().getResource("Delete.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }

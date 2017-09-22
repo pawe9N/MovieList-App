@@ -29,7 +29,8 @@
             <Button mnemonicParsing="false" onMouseClicked="#showSearch" prefHeight="25.0" prefWidth="103.0" text="Search" />
             <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Edit List">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#showAddNew" text="Add to list" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAddMovieNew" text="Add movie to list" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAddSeriesNew" text="Add series to list" />
                   <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change row" />
                   <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete row" />
                </items>
@@ -47,7 +48,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutX="364.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new movie" textAlignment="CENTER" wrappingWidth="315.13671875">
+            <Text fill="WHITE" layoutX="364.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new series" textAlignment="CENTER" wrappingWidth="315.13671875">
                <font>
                   <Font size="36.0" />
                </font>
@@ -59,17 +60,17 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="title" layoutX="207.0" layoutY="6.0" promptText="Title" styleClass="title" />
+                  <TextField fx:id="titleSeries" layoutX="207.0" layoutY="6.0" promptText="Title" styleClass="title" />
                </children>
             </Pane>
             <Pane layoutX="10.0" layoutY="150.0">
                <children>
-                  <Text fill="WHITE" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Premiere" textAlignment="CENTER" wrappingWidth="207.13671875">
+                  <Text fill="WHITE" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" textAlignment="CENTER" wrappingWidth="207.13671875">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="premiere" layoutX="207.0" layoutY="6.0" promptText="Premiere" styleClass="premiere" />
+                  <TextField fx:id="ratingSeries" layoutX="207.0" layoutY="6.0" promptText="Rating" styleClass="rating" />
                </children>
             </Pane>
             <Pane layoutX="10.0" layoutY="200.0">
@@ -79,17 +80,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="country" layoutX="207.0" layoutY="6.0" promptText="Country" styleClass="country" />
-               </children>
-            </Pane>
-            <Pane layoutX="10.0" layoutY="300.0">
-               <children>
-                  <Text fill="WHITE" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" textAlignment="CENTER" wrappingWidth="207.13671875">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="rating" layoutX="207.0" layoutY="6.0" promptText="Rating" styleClass="rating" />
+                  <TextField fx:id="countrySeries" layoutX="207.0" layoutY="6.0" promptText="Country" styleClass="country" />
                </children>
             </Pane>
             <Pane layoutX="10.0" layoutY="250.0">
@@ -99,22 +90,32 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="genre" layoutX="207.0" layoutY="6.0" promptText="Genre" />
+                  <TextField fx:id="genreSeries" layoutX="207.0" layoutY="6.0" promptText="Genre" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="350.0">
+            <Pane layoutX="10.0" layoutY="300.0">
                <children>
-                  <Text fill="WHITE" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Runtime" textAlignment="CENTER" wrappingWidth="207.13671875">
+                  <Text fill="WHITE" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seasons" textAlignment="CENTER" wrappingWidth="207.13671875">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="runtime" layoutX="207.0" layoutY="2.0" promptText="Runtime" styleClass="runtime" />
+                  <TextField fx:id="seasons" layoutX="207.0" layoutY="6.0" promptText="Seasons" styleClass="premiere" />
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="350.0">
+               <children>
+                  <Text fill="WHITE" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Episodes" textAlignment="CENTER" wrappingWidth="207.13671875">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="episodes" layoutX="207.0" layoutY="2.0" promptText="Episodes" styleClass="runtime" />
                </children>
             </Pane>
             <Pane layoutX="10.0" layoutY="400.0" prefHeight="200.0" prefWidth="512.0">
                <children>
-                  <TextArea fx:id="description" layoutX="200.0" prefHeight="200.0" prefWidth="313.0" promptText="Description" styleClass="description" wrapText="true" />
+                  <TextArea fx:id="descriptionSeries" layoutX="200.0" prefHeight="200.0" prefWidth="313.0" promptText="Description" styleClass="description" wrapText="true" />
                   <Text fill="WHITE" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrption" textAlignment="CENTER" wrappingWidth="207.13671875">
                      <font>
                         <Font size="18.0" />
@@ -122,19 +123,34 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="explorerImages" layoutX="597.0" layoutY="321.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="230.0" styleClass="explorerImages" text="Image" />
-            <AnchorPane fx:id="anchorImage" layoutX="637.0" layoutY="116.0" prefHeight="200.0" prefWidth="150.0" styleClass="anchorImage" />
-            <Button fx:id="submit" layoutX="633.0" layoutY="460.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="144.0" styleClass="submit" text="Add new movie" />
-            <Pane layoutX="620.0" layoutY="392.0">
+            <Button fx:id="explorerImagesSeries" layoutX="608.0" layoutY="329.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="230.0" styleClass="explorerImages" text="Upload Image" />
+            <AnchorPane fx:id="anchorImageSeries" layoutX="633.0" layoutY="115.0" prefHeight="202.0" prefWidth="150.0" styleClass="anchorImage" />
+            <Button fx:id="submitSeries" layoutX="608.0" layoutY="460.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="144.0" styleClass="submit" text="Add new movie" />
+            <Pane layoutX="623.0" layoutY="415.0">
                <children>
-                  <RadioButton fx:id="watched" mnemonicParsing="false" selected="true" text="Watched" textAlignment="CENTER" textFill="WHITE">
+                  <RadioButton fx:id="watchedSeries" layoutX="-70.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="138.0" selected="true" text="Watched" textAlignment="CENTER" textFill="WHITE">
                      <toggleGroup>
-                        <ToggleGroup fx:id="Watch" />
+                        <ToggleGroup fx:id="watchSeries" />
                      </toggleGroup>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </RadioButton>
-                  <RadioButton fx:id="toWatch" layoutX="104.0" mnemonicParsing="false" text="To Watch" textAlignment="CENTER" textFill="WHITE" toggleGroup="$Watch" />
+                   <RadioButton fx:id="watching" layoutX="50.0" mnemonicParsing="false" text="Watching" textAlignment="CENTER" textFill="WHITE" toggleGroup="$watchSeries">
+                     <font>
+                        <Font size="14.0" />
+                     </font></RadioButton>
+                  <RadioButton fx:id="toWatchSeries" layoutX="178.0" mnemonicParsing="false" text="To Watch" textAlignment="CENTER" textFill="WHITE" toggleGroup="$watchSeries">
+                     <font>
+                        <Font size="14.0" />
+                     </font></RadioButton>
                </children>
             </Pane>
+            <Text fx:id="messageSeries" fill="RED" layoutX="545.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="334.13671875">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </center>

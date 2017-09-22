@@ -14,6 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+    	MySQL.initialization();
     	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("RandomMoviesAndSeries.fxml"));
         primaryStage.setTitle("Movie App");

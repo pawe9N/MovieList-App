@@ -28,10 +28,11 @@
             <Button mnemonicParsing="false" onMouseClicked="#showToWatch" prefHeight="25.0" prefWidth="112.0" text="To Watch" />
             <Button mnemonicParsing="false" onMouseClicked="#showSearch" prefHeight="25.0" prefWidth="103.0" text="Search" />
             <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Edit List">
-               <items>
-                  <MenuItem onAction="#showAddNew" mnemonicParsing="false" text="Add to list" />
-                  <MenuItem onAction="#showUpdate" mnemonicParsing="false" text="Change row" />
-                  <MenuItem onAction="#showDelete" mnemonicParsing="false" text="Delete row" />
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showAddMovieNew" text="Add movie to list" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAddSeriesNew" text="Add series to list" />
+                  <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change row" />
+                  <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete row" />
                </items>
             </MenuButton>
          </children>

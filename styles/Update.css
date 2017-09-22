@@ -83,3 +83,47 @@
 .menu-button .text{
 	-fx-text-alignment: center;
 }
+
+.split-menu-button {
+	-fx-background-color: #ffffff;
+    -fx-text-fill:  #293958;
+    -fx-font-size: 15px; 
+}
+
+.split-menu-button .label{
+    -fx-pref-width: 130px;
+    -fx-text-fill:  #293958;
+    -fx-background-color: #ffffff;
+}
+
+.split-menu-button .arrow-button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill:  #293958;
+}
+
+.split-menu-button .arrow-button:hover{
+	-fx-cursor: hand;
+    -fx-text-fill:  #293958;
+}
+
+.split-menu-button .menu-item {
+    -fx-background-color: #ffffff;
+    -fx-pref-width: 130px;
+    -fx-text-fill:  #293958;
+}
+
+.split-menu-button .menu-item:hover {
+    -fx-cursor: hand;
+}
+
+.button{
+	-fx-font-size: 14pt;
+    -fx-pref-width: 150pt; 
+	-fx-pref-height: 60pt;
+	-fx-background-color: #293256;
+	-fx-text-fill: #ffffff;
+	-fx-border-color: white;
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 20px;
+}
+

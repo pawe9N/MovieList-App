@@ -83,6 +83,50 @@
 .menu-button .text{
 	-fx-text-alignment: center;
 }
+
 .anchorImage{
 	-fx-background-size: cover;
+}
+
+.explorerImages{
+	 -fx-font-size: 14pt;
+    -fx-pref-width: 150pt; 
+	-fx-pref-height: 30pt;
+	-fx-background-color: #293256;
+	-fx-text-fill: #ffffff;
+	-fx-border-color: white;
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 20px;
+}
+
+.submit{
+	-fx-font-size: 14pt;
+    -fx-pref-width: 150pt; 
+	-fx-pref-height: 60pt;
+	-fx-background-color: #293256;
+	-fx-text-fill: #ffffff;
+	-fx-border-color: white;
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 20px;
+}
+
+.submit:hover, .explorerImages:hover{
+	-fx-background-color: #202746;
+	-fx-cursor: hand; 
+}
+
+.scroll-bar{
+    -fx-background-color: #293256;
+    -fx-background-radius: 5pt;
+    -fx-pref-width: 15pt;
+}
+
+.scroll-bar:hover{
+	-fx-cursor: hand; 
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #202746;
+    -fx-background-insets: 0 6 0 6;
+    -fx-background-radius: 5pt;
 }

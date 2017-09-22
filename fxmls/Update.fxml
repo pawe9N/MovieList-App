@@ -29,9 +29,10 @@
             <Button mnemonicParsing="false" onMouseClicked="#showSearch" prefHeight="25.0" prefWidth="103.0" text="Search" />
             <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Edit List">
                <items>
-                  <MenuItem onAction="#showAddNew" mnemonicParsing="false" text="Add to list" />
-                  <MenuItem onAction="#showUpdate" mnemonicParsing="false" text="Change row" />
-                  <MenuItem onAction="#showDelete" mnemonicParsing="false" text="Delete row" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAddMovieNew" text="Add movie to list" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAddSeriesNew" text="Add series to list" />
+                  <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change row" />
+                  <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete row" />
                </items>
             </MenuButton>
          </children>
@@ -44,4 +45,49 @@
          </children>
       </HBox>
    </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" layoutX="433.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Row " textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <SplitMenuButton fx:id="tableMenu" alignment="CENTER" contentDisplay="CENTER" layoutX="585.0" layoutY="234.0" mnemonicParsing="false" prefWidth="130.0" styleClass="tableMenu" textAlignment="CENTER">
+               <items>
+                  <MenuItem fx:id="tableMenuMovies" mnemonicParsing="false" text="movies" />
+                  <MenuItem fx:id="tableMenuSeries" mnemonicParsing="false" text="series" />
+               </items>
+            </SplitMenuButton>
+            <Text fill="WHITE" layoutX="322.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Table:" wrappingWidth="200.1328125">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <SplitMenuButton fx:id="columnMenu" alignment="CENTER" contentDisplay="CENTER" layoutX="585.0" layoutY="284.0" mnemonicParsing="false" prefWidth="130.0" styleClass="columnMenu" />
+            <Text fill="WHITE" layoutX="322.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Column:" wrappingWidth="200.1328125">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="322.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Value:" wrappingWidth="200.1328125">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="newValue" layoutX="585.0" layoutY="387.0" promptText="New Value" />
+            <TextField fx:id="title" layoutX="585.0" layoutY="338.0" promptText="Title of Column" />
+            <Text fill="WHITE" layoutX="322.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Where title is equal:" wrappingWidth="222.1328125">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="submit" layoutX="444.0" layoutY="451.0" mnemonicParsing="false" text="Submit" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>
