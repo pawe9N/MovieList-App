@@ -19,6 +19,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -76,13 +79,13 @@ public class RandomMoviesAndSeriesController implements Initializable {
         	index = indexes.get(i);
         	
         	MovieVboxes.add(new MovieVbox(vbox[i]));
-        	String imgName = MySQL.getStringFromTable(movies,"imgName", index+1);
-        	String titleS = MySQL.getStringFromTable(movies,"title", index+1);
-        	String descriptionS = MySQL.getStringFromTable(movies,"description", index+1);
-        	String premiere = MySQL.getStringFromTable(movies,"premiere", index+1);
-        	String country = MySQL.getStringFromTable(movies,"country", index+1);
-        	int rating = MySQL.getIntFromTable(movies, "rating", index+1);
-        	int runtime = MySQL.getIntFromTable(movies,"runtime", index+1);
+        	String imgName = MySQL.getStringFromTable(movies,"imgName", index);
+        	String titleS = MySQL.getStringFromTable(movies,"title", index);
+        	String descriptionS = MySQL.getStringFromTable(movies,"description", index);
+        	String premiere = MySQL.getStringFromTable(movies,"premiere", index);
+        	String country = MySQL.getStringFromTable(movies,"country", index);
+        	int rating = MySQL.getIntFromTable(movies, "rating", index);
+        	int runtime = MySQL.getIntFromTable(movies,"runtime", index);
         	
         	MovieVbox.anchorSetImage(MovieVboxes.get(i), imgVariables[i], imgName);
         	MovieVbox.buttonSetText(MovieVboxes.get(i), titleButtons[i], titleS);
@@ -123,14 +126,35 @@ public class RandomMoviesAndSeriesController implements Initializable {
     public static List<Integer> getRandomIndex(String table){
     	int amount = MySQL.getAmountOfRows(table);
         Random generator = new Random();
-        List<Integer> myList = new ArrayList<Integer>();
+        List<Integer> myRandomIndexes = new ArrayList<Integer>();
+        List<Integer> myIndexes = new ArrayList<Integer>();
+        myIndexes.addAll(getAllIndexes(table));
         int element;
-        while(myList.size() != 9){
+        while(myRandomIndexes.size() != 9){
         	element = generator.nextInt(amount);
-        	if(!myList.contains(element))
-        		myList.add(element);
+        	if(amount > 9){
+	        	if(!myRandomIndexes.contains(myIndexes.get(element)))
+	        		myRandomIndexes.add(myIndexes.get(element));
+        	}else{
+        			myRandomIndexes.add(myIndexes.get(element));
+        	}
          }
-        return myList;
+        return myRandomIndexes;
+    }
+    
+    public static List<Integer> getAllIndexes(String table){
+        List<Integer> myIndexes = new ArrayList<Integer>();
+        try {
+			Statement sqlState = MySQL.conn.createStatement();
+			String query = "select id from "+table;
+			ResultSet rows = sqlState.executeQuery(query);
+			while(rows.next()){
+				myIndexes.add(rows.getInt("id"));
+			 }
+		}catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+        return myIndexes;
     }
     
     public void showSeriesList(){
@@ -146,13 +170,13 @@ public class RandomMoviesAndSeriesController implements Initializable {
         	index = indexes.get(i);
         	
         	SeriesVboxes.add(new SeriesVbox(vbox[i]));
-        	String imgName = MySQL.getStringFromTable(series,"imgName", index+1);
-        	String titleS = MySQL.getStringFromTable(series,"title", index+1);
-        	String descriptionS = MySQL.getStringFromTable(series,"description", index+1);
-        	String country = MySQL.getStringFromTable(series,"country", index+1);
-        	int rating = MySQL.getIntFromTable(series, "rating", index+1);
-        	int episodes = MySQL.getIntFromTable(series,"episodes", index+1);
-        	int seasons = MySQL.getIntFromTable(series,"seasons", index+1);
+        	String imgName = MySQL.getStringFromTable(series,"imgName", index);
+        	String titleS = MySQL.getStringFromTable(series,"title", index);
+        	String descriptionS = MySQL.getStringFromTable(series,"description", index);
+        	String country = MySQL.getStringFromTable(series,"country", index);
+        	int rating = MySQL.getIntFromTable(series, "rating", index);
+        	int episodes = MySQL.getIntFromTable(series,"episodes", index);
+        	int seasons = MySQL.getIntFromTable(series,"seasons", index);
         	
         	SeriesVbox.anchorSetImage(SeriesVboxes.get(i), imgVariables[i], imgName);
         	SeriesVbox.buttonSetText(SeriesVboxes.get(i), titleButtons[i], titleS);

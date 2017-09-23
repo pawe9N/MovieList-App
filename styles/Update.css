@@ -85,35 +85,43 @@
 }
 
 .split-menu-button {
-	-fx-background-color: #ffffff;
-    -fx-text-fill:  #293958;
+	-fx-background-color: #293958;
+    -fx-text-fill:  #ffffff;
     -fx-font-size: 15px; 
+}
+
+.split-menu-button:hover {
+	-fx-cursor: hand;
+	-fx-background-color: #202746;
 }
 
 .split-menu-button .label{
     -fx-pref-width: 130px;
-    -fx-text-fill:  #293958;
-    -fx-background-color: #ffffff;
+    -fx-text-fill:  #ffffff;
+    -fx-background-color: #293958;
 }
 
 .split-menu-button .arrow-button {
-    -fx-background-color: #ffffff;
-    -fx-text-fill:  #293958;
+    -fx-background-color: #293958;
+    -fx-text-fill:  #ffffff;
 }
 
 .split-menu-button .arrow-button:hover{
 	-fx-cursor: hand;
-    -fx-text-fill:  #293958;
+    -fx-text-fill:  #ffffff;
+    -fx-background-color: #202746;
 }
 
 .split-menu-button .menu-item {
-    -fx-background-color: #ffffff;
+    -fx-background-color: #293958;
     -fx-pref-width: 130px;
-    -fx-text-fill:  #293958;
+    -fx-text-fill:  #ffffff;
 }
 
 .split-menu-button .menu-item:hover {
     -fx-cursor: hand;
+    -fx-border-color: white;
+	-fx-border-width: 2pt 2pt 2pt 2pt;
 }
 
 .button{
@@ -125,5 +133,14 @@
 	-fx-border-color: white;
 	-fx-border-width: 1pt 1pt 1pt 1pt;
 	-fx-border-radius: 20px;
+}
+
+.button:hover{
+	-fx-cursor: hand;
+	-fx-background-color: #202746;
+}
+
+.sceneTitle{
+	-fx-font-family: 'Bowlby One SC', cursive;
 }
 

@@ -31,8 +31,8 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#showAddMovieNew" text="Add movie to list" />
                   <MenuItem mnemonicParsing="false" onAction="#showAddSeriesNew" text="Add series to list" />
-                  <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change row" />
-                  <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete row" />
+                  <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change" />
+                  <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete" />
                </items>
             </MenuButton>
          </children>
@@ -48,7 +48,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutX="364.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new movie" textAlignment="CENTER" wrappingWidth="315.13671875">
+            <Text fill="WHITE" layoutX="380.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sceneTitle" text="Add new movie" textAlignment="CENTER" wrappingWidth="315.13671875">
                <font>
                   <Font size="36.0" />
                </font>

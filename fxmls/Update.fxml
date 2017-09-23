@@ -31,8 +31,8 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#showAddMovieNew" text="Add movie to list" />
                   <MenuItem mnemonicParsing="false" onAction="#showAddSeriesNew" text="Add series to list" />
-                  <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change row" />
-                  <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete row" />
+                  <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change" />
+                  <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete" />
                </items>
             </MenuButton>
          </children>
@@ -48,12 +48,12 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutX="442.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Row " textAlignment="CENTER">
+            <Text fill="WHITE" layoutX="288.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sceneTitle" text="Update Movie or Series" textAlignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>
             </Text>
-            <SplitMenuButton fx:id="tableMenu" alignment="CENTER" contentDisplay="CENTER" layoutX="585.0" layoutY="234.0" mnemonicParsing="false" prefWidth="130.0" styleClass="tableMenu" textAlignment="CENTER">
+            <SplitMenuButton fx:id="tableMenu" alignment="CENTER" contentDisplay="CENTER" layoutX="585.0" layoutY="234.0" mnemonicParsing="false" popupSide="RIGHT" prefWidth="130.0" styleClass="tableMenu" textAlignment="CENTER">
                <items>
                   <MenuItem fx:id="tableMenuMovies" mnemonicParsing="false" text="movies" />
                   <MenuItem fx:id="tableMenuSeries" mnemonicParsing="false" text="series" />
@@ -64,7 +64,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <SplitMenuButton fx:id="columnMenu" alignment="CENTER" contentDisplay="CENTER" layoutX="585.0" layoutY="284.0" mnemonicParsing="false" prefWidth="130.0" styleClass="columnMenu" />
+            <SplitMenuButton fx:id="columnMenu" alignment="CENTER" contentDisplay="CENTER" layoutX="585.0" layoutY="284.0" mnemonicParsing="false" popupSide="RIGHT" prefWidth="130.0" styleClass="columnMenu" />
             <Text fill="WHITE" layoutX="322.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Column:" wrappingWidth="200.1328125">
                <font>
                   <Font size="24.0" />
@@ -82,12 +82,12 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Button fx:id="submit" layoutX="444.0" layoutY="451.0" mnemonicParsing="false" text="Submit" textAlignment="CENTER">
+            <Button fx:id="submit" layoutX="433.0" layoutY="452.0" mnemonicParsing="false" text="Update" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Text fx:id="message" fill="WHITE" layoutX="444.0" layoutY="587.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="200.1328125">
+            <Text fx:id="message" fill="WHITE" layoutX="444.0" layoutY="565.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="200.1328125">
                <font>
                   <Font size="24.0" />
                </font>

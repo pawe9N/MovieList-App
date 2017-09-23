@@ -130,3 +130,13 @@
     -fx-background-insets: 0 6 0 6;
     -fx-background-radius: 5pt;
 }
+
+.sceneTitle{
+	-fx-font-family: 'Bowlby One SC', cursive;
+}
+
+.anchorImage{
+	-fx-border-color: white;
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 20px;
+}

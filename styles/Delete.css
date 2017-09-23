@@ -83,3 +83,34 @@
 .menu-button .text{
 	-fx-text-alignment: center;
 }
+
+.tableMenu, .titleMenu{
+	-fx-font-size: 14pt;
+    -fx-pref-width: 100pt; 
+	-fx-pref-height: 10pt;
+	-fx-background-color: #293256;
+	-fx-cursor: hand; 
+	-fx-border-color: white;
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 5px;
+}
+
+.button{
+	-fx-font-size: 20pt;
+    -fx-pref-width: 100pt; 
+	-fx-pref-height: 30pt;
+	-fx-background-color: #293256;
+	-fx-text-fill: #ffffff;
+	-fx-border-color: white;
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 20px;
+}
+
+.button:hover{
+	-fx-cursor: hand;
+	-fx-background-color: #202746;
+}
+
+.sceneTitle{
+	-fx-font-family: 'Bowlby One SC', cursive;
+}

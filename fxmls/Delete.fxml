@@ -31,8 +31,8 @@
               <items>
                   <MenuItem mnemonicParsing="false" onAction="#showAddMovieNew" text="Add movie to list" />
                   <MenuItem mnemonicParsing="false" onAction="#showAddSeriesNew" text="Add series to list" />
-                  <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change row" />
-                  <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete row" />
+                  <MenuItem mnemonicParsing="false" onAction="#showUpdate" text="Change" />
+                  <MenuItem mnemonicParsing="false" onAction="#showDelete" text="Delete" />
                </items>
             </MenuButton>
          </children>
@@ -45,4 +45,50 @@
          </children>
       </HBox>
    </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" layoutX="347.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sceneTitle" text="Delete movie or series" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <AnchorPane layoutX="406.0" layoutY="229.0">
+               <children>
+                  <Text fill="WHITE" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose table:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <MenuButton fx:id="tableMenu" layoutX="186.0" layoutY="20.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="44.0" prefWidth="134.0" styleClass="tableMenu" text="Tables">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="movies" />
+                      <MenuItem mnemonicParsing="false" text="series" />
+                    </items>
+                  </MenuButton>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="406.0" layoutY="297.0">
+               <children>
+                  <MenuButton fx:id="titleMenu" layoutX="186.0" layoutY="20.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="44.0" prefWidth="134.0" styleClass="titleMenu" text="Titles" />
+                  <Text fill="WHITE" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose title:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Button fx:id="submit" layoutX="499.0" layoutY="388.0" mnemonicParsing="false" text="Delete" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+             <Text fx:id="message" fill="WHITE" layoutX="466.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="200.1328125">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>
