@@ -96,14 +96,13 @@
     -fx-font-size: 15px;
 }
 
-
 .table-view .table-cell{
 	-fx-font-family: 'Bowlby One SC', cursive;
 	-fx-background-color: #293256;
     -fx-text-fill: white;
     -fx-alignment: center;
     -fx-border-color: #293256;
-    -fx-font-size: 20px;
+    -fx-font-size: 18px;
 }
 
 .scroll-bar{
@@ -125,5 +124,4 @@
 #pageTitle{
 	-fx-font-family: 'Bowlby One SC', cursive;
 }
-
 

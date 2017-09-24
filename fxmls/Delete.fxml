@@ -78,7 +78,7 @@
                   </Text>
                </children>
             </AnchorPane>
-            <Button fx:id="submit" layoutX="499.0" layoutY="388.0" mnemonicParsing="false" text="Delete" textAlignment="CENTER">
+            <Button styleClass="deleteButton" fx:id="submit" layoutX="499.0" layoutY="388.0" mnemonicParsing="false" text="Delete" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>

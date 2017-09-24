@@ -83,3 +83,52 @@
 .menu-button .text{
 	-fx-text-alignment: center;
 }
+
+.anchorImage{
+	-fx-border-color: white;
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 20px;
+	-fx-background-size: cover;
+}
+
+.button{
+	-fx-font-size: 14pt;
+    -fx-pref-width: 100pt; 
+	-fx-pref-height: 30pt;
+	-fx-background-color: #293256;
+	-fx-text-fill: #ffffff;
+	-fx-border-color: white;
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 20px;
+}
+
+.button:hover{
+	-fx-cursor: hand;
+	-fx-background-color: #202746;
+}
+
+.sceneTitle{
+	-fx-font-family: 'Bowlby One SC', cursive;
+}
+
+.tableMenu{
+	-fx-font-size: 14pt;
+    -fx-pref-width: 100pt; 
+	-fx-pref-height: 10pt;
+	-fx-background-color: #293256;
+	-fx-cursor: hand; 
+	-fx-border-color: white;
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 5px;
+}
+
+.deleteButton{
+	-fx-pref-width: 200pt; 
+	-fx-background-color: Crimson;
+	-fx-font-weight: bold;
+	-fx-background-radius: 20px;
+}
+
+.deleteButton:hover{
+	-fx-background-color: red;
+}

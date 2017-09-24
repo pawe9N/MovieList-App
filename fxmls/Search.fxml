@@ -45,4 +45,52 @@
          </children>
       </HBox>
    </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+         	<Text fx:id="sceneTitle" fill="WHITE" layoutX="155.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sceneTitle" text="Search" textAlignment="CENTER" wrappingWidth="152.13671875">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <AnchorPane fx:id="anchorImage" layoutX="668.0" layoutY="58.0" prefHeight="200.0" prefWidth="150.0" styleClass="anchorImage" />
+            <Button fx:id="watchedButton" layoutX="522.0" layoutY="341.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="130.0" text="Watched" textAlignment="CENTER" />
+            <Button fx:id="watchingButton" layoutX="676.0" layoutY="341.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="130.0" text="Watching" textAlignment="CENTER" />
+            <Button fx:id="toWatchButton" layoutX="829.0" layoutY="341.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="130.0" text="To Watch" textAlignment="CENTER" />
+            <Button fx:id="deleteButton" layoutX="610.0" layoutY="434.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="229.0" styleClass="deleteButton" text="Delete from List" textAlignment="CENTER" />
+            <Text fill="WHITE" layoutX="58.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose table:" textAlignment="CENTER" wrappingWidth="152.13671875">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <MenuButton fx:id="tableMenu" contentDisplay="RIGHT" layoutX="240.0" layoutY="197.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="35.0" prefWidth="140.0" styleClass="tableMenu" textAlignment="CENTER">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Movies" />
+                  <MenuItem mnemonicParsing="false" text="Series" />
+               </items>
+            </MenuButton>
+            <Text fill="WHITE" layoutX="48.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose title:" textAlignment="CENTER" wrappingWidth="152.13671875">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="titleField" layoutX="244.0" layoutY="264.0" prefHeight="25.0" prefWidth="149.0" promptText="Title">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="submit" layoutX="164.0" layoutY="341.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="130.0" text="Search" textAlignment="CENTER" />
+         	<Text fx:id="message" fill="WHITE" layoutX="131.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="200.1328125">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="titleText" fill="WHITE" layoutX="667.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="152.13671875">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>

@@ -114,3 +114,13 @@
 .sceneTitle{
 	-fx-font-family: 'Bowlby One SC', cursive;
 }
+
+.deleteButton{
+	-fx-background-color: Crimson;
+	-fx-font-weight: bold;
+	-fx-background-radius: 20px;
+}
+
+.deleteButton:hover{
+	-fx-background-color: red;
+}
