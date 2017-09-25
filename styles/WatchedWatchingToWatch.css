@@ -83,3 +83,108 @@
 .menu-button .text{
 	-fx-text-alignment: center;
 }
+
+.anchorScroll{
+	-fx-background-color:  #202746;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+	-fx-border-width: 1pt 0 0 0;
+}
+
+.scroll-bar{
+    -fx-background-color: #293256;
+    -fx-background-radius: 5pt;
+    -fx-pref-width: 15pt;
+}
+
+.scroll-bar:hover{
+	-fx-cursor: hand; 
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #202746;
+    -fx-background-insets: 0 6 0 6;
+    -fx-background-radius: 5pt;
+}
+
+.anchorImage, .coverAnchor{
+	-fx-pref-width: 100pt;
+	-fx-max-width: 100pt;
+	-fx-min-width: 100pt;
+	-fx-pref-height: 150pt;
+	-fx-max-height: 150pt;
+	-fx-min-height: 150pt;
+	-fx-background-size: cover;
+	-fx-border-color: #ffffff;
+	-fx-border-radius: 10pt;
+}
+
+.titleButton{
+	-fx-font-family: 'Bowlby One SC', cursive;
+	-fx-font-weight: bold;
+	-fx-font-size: 11pt;
+	-fx-pref-width: 100pt;
+	-fx-max-width: 100pt;
+	-fx-min-width: 100pt;
+	-fx-pref-height: 50pt;
+	-fx-max-height: 50pt;
+	-fx-min-height: 50pt;
+	-fx-text-alignment: center;
+	-fx-background-color: #293256;
+	-fx-text-fill: #ffffff;
+	-fx-alignment: center;
+	-fx-background-radius: 10pt;
+	-fx-border-color: #ffffff;
+	-fx-border-radius: 10pt;
+	-fx-border-width: 1pt 1pt 4pt 1pt;
+}
+
+.anchorMovie:hover{
+     -fx-cursor: hand; 
+}
+
+.button:hover{
+	 -fx-cursor: hand; 
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+}
+
+.anchorMovie:hover .titleButton{
+    -fx-border-width: 1pt 1pt 1pt 1pt;
+}
+
+.descriptionLabel{
+	-fx-text-fill: white;
+	-fx-max-width: 370pt;
+	-fx-min-width: 370pt;
+	-fx-background-color:  #293256;
+	-fx-cursor:default;
+	-fx-padding: 20pt 30pt 20pt 20pt;
+	-fx-font-size: 14pt;
+	-fx-background-radius: 10pt;
+}
+
+.descriptionScroll, .descriptionAnchor{
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 10pt;
+	-fx-background-radius: 10pt;
+ 	-fx-background-color: #293256;
+}
+
+.wButton{
+	-fx-font-size: 16pt;
+    -fx-pref-width: 150pt; 
+	-fx-pref-height: 30pt;
+	-fx-background-color: #293256;
+	-fx-text-fill: #ffffff;
+	-fx-border-color: white;
+	-fx-border-width: 1pt 1pt 1pt 1pt;
+	-fx-border-radius: 20px;
+}
+
+.wButton:hover{
+	-fx-cursor: hand;
+	-fx-background-color: #202746;
+}

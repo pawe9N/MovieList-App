@@ -81,9 +81,9 @@
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></AnchorPane>
-            <ScrollPane hbarPolicy="NEVER" layoutX="17.0" layoutY="247.0" maxWidth="510.0" minWidth="200.0" prefHeight="353.0" prefWidth="493.0" styleClass="DescriptionScroll">
+            <ScrollPane hbarPolicy="NEVER" layoutX="17.0" layoutY="247.0" maxWidth="510.0" minWidth="200.0" prefHeight="353.0" prefWidth="493.0" styleClass="descriptionScroll">
                <content>
-                  <VBox minHeight="350.0" styleClass="DescriptionVBox">
+                  <VBox minHeight="350.0" styleClass="descriptionVBox">
                      <children>
                         <Label fx:id="description" alignment="TOP_LEFT" contentDisplay="TOP" depthTest="ENABLE" minHeight="370.0" pickOnBounds="false" styleClass="description" text="Maximus is a powerful Roman general, loved by the people and the aging Emperor, Marcus Aurelius. Before his death, the Emperor chooses Maximus to be his heir over his own son, Commodus, and a power struggle leaves Maximus and his family condemned to death. The powerful general is unable to save his family, and his loss of will allows him to get captured and put into the Gladiator games until he dies. The only desire that fuels him now is the chance to rise to the top so that he will be able to look into the eyes of the man who will feel his revenge." textAlignment="JUSTIFY" wrapText="true">
                            <cursor>

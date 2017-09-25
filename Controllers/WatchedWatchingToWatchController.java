@@ -10,25 +10,32 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class WatchedWatchingToWatchController implements Initializable {
 	
-	@FXML
-	private HBox hbox;
+	@FXML HBox hbox;
+	@FXML AnchorPane anchorScroll,anchorMovie,anchorImage, anchorCover;
+	@FXML Button titleButton, watchedButton, watchingButton, toWatchButton;
+	@FXML Label descriptionLabel;
+	@FXML Text runtimeOrEpisodesText, premiereOrSeasonsText, ratingText, countryText, genreText, titleText;
 	
 	private IntegerProperty indexC = new SimpleIntegerProperty(-1);
 
 	public void setIndex(int index){
 	    this.indexC.set(index);
 	    if(index==1){
-	    	
+	    	showWatched();
 	    }else if(index==2){
-	    	
+	    	showWatching();
 	    }else if(index==3){
-	    	
+	    	showToWatch();
 	    }
 	}
 
@@ -37,6 +44,23 @@ public class WatchedWatchingToWatchController implements Initializable {
 	    
 	}
 	
+	public void showWatched(){
+		watchedButton.setText("Delete From List");
+		watchingButton.setText("Watching");
+		toWatchButton.setText("To Watch");
+	}
+	
+	public void showWatching(){
+		watchedButton.setText("Watched");
+		watchingButton.setText("Delete From List");
+		toWatchButton.setText("To Watch");
+	}
+	
+	public void showToWatch(){
+		watchedButton.setText("Watched");
+		watchingButton.setText("Watching");
+		toWatchButton.setText("Delete From List");
+	}
     
 	public void showYourProfile(MouseEvent event) throws IOException{
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("YourProfile.fxml"));

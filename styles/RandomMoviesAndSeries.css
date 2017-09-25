@@ -203,12 +203,12 @@
 	-fx-font-size: 14pt;
 }
 
-.DescriptionScroll{
+.descriptionScroll{
  	-fx-background-color: #293256;
 }
 
-.DescriptionVBox{
--fx-background-color: #293256;
+.descriptionVBox{
+	-fx-background-color: #293256;
 }
 
 

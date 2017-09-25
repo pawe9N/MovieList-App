@@ -45,4 +45,76 @@
          </children>
       </HBox>
    </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutY="-1.0" prefHeight="379.0" prefWidth="880.0" styleClass="anchorOverview">
+               <children>
+                  <AnchorPane fx:id="anchorCover" layoutX="42.0" layoutY="28.0" prefHeight="163.0" prefWidth="164.0" styleClass="coverAnchor" />
+                  <Text fx:id="titleText" fill="WHITE" layoutX="42.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="genreText" fill="WHITE" layoutX="42.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="countryText" fill="WHITE" layoutX="42.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="ratingText" fill="WHITE" layoutX="229.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="premiereOrSeasonsText" fill="WHITE" layoutX="229.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Premiere:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="runtimeOrEpisodesText" fill="WHITE" layoutX="229.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Runtime:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <ScrollPane hbarPolicy="NEVER" layoutX="493.0" layoutY="43.0" prefHeight="231.0" prefWidth="493.0" styleClass="descriptionScroll">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="229.0" prefWidth="491.0" styleClass="descriptionAnchor">
+                           <children>
+                              <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutY="-11.0" maxWidth="494.0" prefHeight="246.0" prefWidth="494.0" styleClass="descriptionLabel" />
+                           </children></AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <Button fx:id="watchedButton" layoutX="403.0" layoutY="305.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="Delete from List" />
+                  <Button fx:id="watchingButton" layoutX="640.0" layoutY="305.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="Watching" />
+                  <Button fx:id="toWatchButton" layoutX="875.0" layoutY="305.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="To Watch" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="378.0" prefHeight="242.0" prefWidth="879.0" styleClass="anchorListOfMovies">
+               <children>
+                  <ScrollPane layoutX="14.0" layoutY="1.0" prefHeight="241.0" prefWidth="1093.0" vbarPolicy="NEVER">
+                    <content>
+                      <AnchorPane fx:id="anchorScroll" minHeight="0.0" minWidth="0.0" prefHeight="245.0" prefWidth="1087.0" styleClass="anchorScroll">
+                           <children>
+                              <AnchorPane fx:id="anchorMovie" layoutX="24.0" layoutY="26.0" styleClass="anchorMovie">
+                                 <children>
+                                    <AnchorPane layoutX="2.0" layoutY="-6.0" prefHeight="141.0" prefWidth="107.0" styleClass="anchorImage">
+                                       <children>
+                                          <Button layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="135.0" styleClass="titleButton" text="Button" />
+                                       </children></AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>
