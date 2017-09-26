@@ -92,6 +92,7 @@
     -fx-background-color: transparent;
     -fx-border-color: white;
 	-fx-border-width: 1pt 0 0 0;
+	-fx-padding:0 20pt 0 20pt;
 }
 
 .scroll-bar{
@@ -110,7 +111,7 @@
     -fx-background-radius: 5pt;
 }
 
-.anchorImage, .coverAnchor{
+.anchorImage{
 	-fx-pref-width: 100pt;
 	-fx-max-width: 100pt;
 	-fx-min-width: 100pt;
@@ -120,53 +121,44 @@
 	-fx-background-size: cover;
 	-fx-border-color: #ffffff;
 	-fx-border-radius: 10pt;
+	-fx-background-radius: 10pt;
 }
 
-.titleButton{
-	-fx-font-family: 'Bowlby One SC', cursive;
-	-fx-font-weight: bold;
-	-fx-font-size: 11pt;
-	-fx-pref-width: 100pt;
-	-fx-max-width: 100pt;
-	-fx-min-width: 100pt;
-	-fx-pref-height: 50pt;
-	-fx-max-height: 50pt;
-	-fx-min-height: 50pt;
-	-fx-text-alignment: center;
-	-fx-background-color: #293256;
-	-fx-text-fill: #ffffff;
-	-fx-alignment: center;
-	-fx-background-radius: 10pt;
+.coverAnchor{
+	-fx-pref-width: 110pt;
+	-fx-max-width: 110pt;
+	-fx-min-width: 110pt;
+	-fx-pref-height: 150pt;
+	-fx-max-height: 150pt;
+	-fx-min-height: 150pt;
+	-fx-background-size: cover;
 	-fx-border-color: #ffffff;
 	-fx-border-radius: 10pt;
-	-fx-border-width: 1pt 1pt 4pt 1pt;
+	-fx-background-radius: 10pt;
 }
 
-.anchorMovie:hover{
+.anchorImage{
+	-fx-border-width: 0pt 0pt 0pt 0pt;
+}
+
+.anchorImage:hover{
      -fx-cursor: hand; 
-}
-
-.button:hover{
-	 -fx-cursor: hand; 
-	-fx-border-width: 1pt 1pt 1pt 1pt;
-}
-
-.anchorMovie:hover .titleButton{
-    -fx-border-width: 1pt 1pt 1pt 1pt;
+     -fx-border-width: 0pt 3pt 3pt 0pt;
 }
 
 .descriptionLabel{
 	-fx-text-fill: white;
-	-fx-max-width: 370pt;
-	-fx-min-width: 370pt;
+	-fx-max-width: 340pt;
+	-fx-min-width: 340pt;
+	-fx-min-height: 222pt;
 	-fx-background-color:  #293256;
 	-fx-cursor:default;
-	-fx-padding: 20pt 30pt 20pt 20pt;
+	-fx-padding: 10pt 20pt 10pt 15pt;
 	-fx-font-size: 14pt;
 	-fx-background-radius: 10pt;
 }
 
-.descriptionScroll, .descriptionAnchor{
+.descriptionScroll{
 	-fx-border-width: 1pt 1pt 1pt 1pt;
 	-fx-border-radius: 10pt;
 	-fx-background-radius: 10pt;
@@ -174,9 +166,9 @@
 }
 
 .wButton{
-	-fx-font-size: 16pt;
-    -fx-pref-width: 150pt; 
-	-fx-pref-height: 30pt;
+	-fx-font-size: 14pt;
+    -fx-pref-width: 140pt; 
+	-fx-pref-height: 20pt;
 	-fx-background-color: #293256;
 	-fx-text-fill: #ffffff;
 	-fx-border-color: white;

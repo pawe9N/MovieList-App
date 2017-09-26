@@ -58,54 +58,52 @@
                   </Text>
                   <Text fx:id="genreText" fill="WHITE" layoutX="42.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre:">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="22.0" />
                      </font>
                   </Text>
                   <Text fx:id="countryText" fill="WHITE" layoutX="42.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country:">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="22.0" />
                      </font>
                   </Text>
                   <Text fx:id="ratingText" fill="WHITE" layoutX="229.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="22.0" />
                      </font>
                   </Text>
                   <Text fx:id="premiereOrSeasonsText" fill="WHITE" layoutX="229.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Premiere:">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="22.0" />
                      </font>
                   </Text>
                   <Text fx:id="runtimeOrEpisodesText" fill="WHITE" layoutX="229.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Runtime:">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="22.0" />
                      </font>
                   </Text>
-                  <ScrollPane hbarPolicy="NEVER" layoutX="493.0" layoutY="43.0" prefHeight="231.0" prefWidth="493.0" styleClass="descriptionScroll">
+                  <ScrollPane hbarPolicy="NEVER" layoutX="493.0" layoutY="43.0" prefHeight="230.0" prefWidth="493.0" styleClass="descriptionScroll">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="229.0" prefWidth="491.0" styleClass="descriptionAnchor">
+                      <AnchorPane styleClass="descriptionAnchor">
                            <children>
-                              <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutY="-11.0" maxWidth="494.0" prefHeight="246.0" prefWidth="494.0" styleClass="descriptionLabel" />
+                              <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="-18.0" maxWidth="454.0" minWidth="447.0" prefWidth="454.0" styleClass="descriptionLabel" textAlignment="JUSTIFY" wrapText="true" />
                            </children></AnchorPane>
                     </content>
                   </ScrollPane>
-                  <Button fx:id="watchedButton" layoutX="403.0" layoutY="305.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="Delete from List" />
-                  <Button fx:id="watchingButton" layoutX="640.0" layoutY="305.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="Watching" />
-                  <Button fx:id="toWatchButton" layoutX="875.0" layoutY="305.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="To Watch" />
+                  <Button fx:id="watchedButton" layoutX="416.0" layoutY="324.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="Delete from List" />
+                  <Button fx:id="watchingButton" layoutX="646.0" layoutY="324.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="Watching" />
+                  <Button fx:id="toWatchButton" layoutX="875.0" layoutY="324.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="To Watch" />
                </children>
             </AnchorPane>
             <AnchorPane layoutY="378.0" prefHeight="242.0" prefWidth="879.0" styleClass="anchorListOfMovies">
                <children>
-                  <ScrollPane layoutX="14.0" layoutY="1.0" prefHeight="241.0" prefWidth="1093.0" vbarPolicy="NEVER">
+                  <ScrollPane layoutX="22.0" layoutY="1.0" prefHeight="241.0" prefWidth="1096.0" vbarPolicy="NEVER">
                     <content>
-                      <AnchorPane fx:id="anchorScroll" minHeight="0.0" minWidth="0.0" prefHeight="245.0" prefWidth="1087.0" styleClass="anchorScroll">
+                      <AnchorPane fx:id="anchorScroll" minHeight="200.0" minWidth="1077.0" prefHeight="236.0" styleClass="anchorScroll">
                            <children>
                               <AnchorPane fx:id="anchorMovie" layoutX="24.0" layoutY="26.0" styleClass="anchorMovie">
                                  <children>
                                     <AnchorPane layoutX="2.0" layoutY="-6.0" prefHeight="141.0" prefWidth="107.0" styleClass="anchorImage">
-                                       <children>
-                                          <Button layoutY="133.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="135.0" styleClass="titleButton" text="Button" />
-                                       </children></AnchorPane>
+                                    </AnchorPane>
                                  </children>
                               </AnchorPane>
                            </children>

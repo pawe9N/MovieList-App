@@ -102,7 +102,7 @@ public class AddController implements Initializable {
 					     message.setFill(Color.GREEN);
 					     
 					}catch (SQLException e1) {
-						// TODO Auto-generated catch block
+						
 						e1.printStackTrace();
 						message.setText("Can't send values to database!");
 						message.setFill(Color.RED);
