@@ -166,7 +166,7 @@ public class UpdateController implements Initializable {
         controller.setIndex(2);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)hbox).getScene().getWindow();
-    	home_page_scene.getStylesheets().add(getClass().getResource("TopLIsts.css").toExternalForm());
+    	home_page_scene.getStylesheets().add(getClass().getResource("TopLists.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }

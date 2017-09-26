@@ -132,7 +132,7 @@ public class RandomMoviesAndSeriesController implements Initializable {
         int element;
         while(myRandomIndexes.size() != 9){
         	element = generator.nextInt(amount);
-        	if(amount > 9){
+        	if(amount >= 9){
 	        	if(!myRandomIndexes.contains(myIndexes.get(element)))
 	        		myRandomIndexes.add(myIndexes.get(element));
         	}else{

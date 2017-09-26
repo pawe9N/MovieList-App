@@ -4,6 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+
+import com.mysql.jdbc.PreparedStatement;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
@@ -20,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -27,9 +31,9 @@ public class WatchedWatchingToWatchController implements Initializable {
 	
 	@FXML HBox hbox;
 	@FXML AnchorPane anchorScroll, anchorMovie, anchorCover;
-	@FXML Button watchedButton, watchingButton, toWatchButton;
+	@FXML Button watchedButton, watchingButton, toWatchButton, watchedB;
 	@FXML Label descriptionLabel;
-	@FXML Text runtimeOrEpisodesText, premiereOrSeasonsText, ratingText, countryText, genreText, titleText;
+	@FXML Text runtimeOrEpisodesText, premiereOrSeasonsText, ratingText, countryText, genreText, titleText, message;
 	ObservableList<AnchorPane> newMoviePanes = FXCollections.observableArrayList();
 	private IntegerProperty indexC = new SimpleIntegerProperty(-1);
 
@@ -50,6 +54,78 @@ public class WatchedWatchingToWatchController implements Initializable {
 	}
 	
 	public void showWatched(){
+		
+		newMoviePanes.clear();
+		
+		try {
+			Statement sqlState = MySQL.conn.createStatement();
+			String selectStuff = "Select imgName, title, genre, country, rating, premiere, runtime, description from movies where watched=true";
+			ResultSet rows = sqlState.executeQuery(selectStuff);
+			
+			String imgName, title, genre, country, rating, premiere, runtime, description;
+			if(rows.next()!=false){
+			imgName =  rows.getString("imgName");
+			title = rows.getString("title");
+			genre = rows.getString("genre");
+			country = rows.getString("country");
+			rating = rows.getString("rating");
+			premiere = rows.getString("premiere");
+			runtime = rows.getString("runtime");
+			description = rows.getString("description");
+			watchingButton.setDisable(true);
+			watchedButton.getStyleClass().add("deleteButton");
+			toWatchButton.getStyleClass().add("wButton");
+			watchingButton.getStyleClass().add("wButton");
+			anchorCover.setStyle("-fx-background-image: url('"+imgName+".jpg')");
+			titleText.setText("Title: "+title);
+			genreText.setText("Genre: "+genre);
+			countryText.setText("Country: "+country);
+			ratingText.setText("Rating: "+rating+"/10");
+			premiereOrSeasonsText.setText("Premiere: "+premiere);
+			runtimeOrEpisodesText.setText("Runtime: "+runtime+"min");
+			descriptionLabel.setText("     "+description);
+			watchedButton.setOnAction(e2 -> {
+				try {
+    				String query = "update movies set watched = ? where title='"+title+"';";
+					PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					query = "update movies set toWatch = ? where title='"+title+"';";
+					statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					showWatched();
+					message.setText("Deleted from watched!");
+				    message.setFill(Color.GREEN);
+				} catch (SQLException er2) {
+					er2.printStackTrace();
+					message.setText("Can't send values to database!");
+					message.setFill(Color.RED);
+				}
+			});
+			toWatchButton.setOnAction(e2 -> {
+				try {
+    				String query = "update movies set watched = ? where title='"+title+"';";
+					PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					query = "update movies set toWatch = ? where title='"+title+"';";
+					statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, true);
+					statement.executeUpdate();
+					showWatched();
+					message.setText("Added to to watch!");
+				    message.setFill(Color.GREEN);
+				} catch (SQLException er2) {
+					er2.printStackTrace();
+					message.setText("Can't send values to database!");
+					message.setFill(Color.RED);
+				}
+			});
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		watchedButton.setText("Delete From List");
 		watchingButton.setText("Watching");
@@ -89,14 +165,55 @@ public class WatchedWatchingToWatchController implements Initializable {
 			runtime = rows.getString("runtime");
 			description = rows.getString("description");
 			newAnchor.setOnMouseClicked(e ->{
+				watchingButton.setDisable(true);
 				anchorCover.setStyle("-fx-background-image: url('"+imgName+".jpg')");
 				titleText.setText("Title: "+title);
 				genreText.setText("Genre: "+genre);
 				countryText.setText("Country: "+country);
-				ratingText.setText("Country: "+rating+"/10");
+				ratingText.setText("Rating: "+rating+"/10");
 				premiereOrSeasonsText.setText("Premiere: "+premiere);
 				runtimeOrEpisodesText.setText("Runtime: "+runtime+"min");
 				descriptionLabel.setText("     "+description);
+				watchedButton.setOnAction(e2 -> {
+					try {
+	    				String query = "update movies set watched = ? where title='"+title+"';";
+						PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+						statement.setBoolean(1, false);
+						statement.executeUpdate();
+						query = "update movies set toWatch = ? where title='"+title+"';";
+						statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+						statement.setBoolean(1, false);
+						statement.executeUpdate();
+						showWatched();
+						message.setText("Deleted from watched!");
+					    message.setFill(Color.GREEN);
+					} catch (SQLException er2) {
+						er2.printStackTrace();
+						message.setText("Can't send values to database!");
+						message.setFill(Color.RED);
+					}
+				});
+				toWatchButton.setOnAction(e2 -> {
+					try {
+	    				String query = "update movies set watched = ? where title='"+title+"';";
+						PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+						statement.setBoolean(1, false);
+						statement.executeUpdate();
+						query = "update movies set toWatch = ? where title='"+title+"';";
+						statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+						statement.setBoolean(1, true);
+						statement.executeUpdate();
+						showWatched();
+						message.setText("Added to watch!");
+					    message.setFill(Color.GREEN);
+					    
+					} catch (SQLException er2) {
+						er2.printStackTrace();
+						message.setText("Can't send values to database!");
+						message.setFill(Color.RED);
+					}
+				});
+				
 			});
 			newMoviePanes.add(newAnchor);
 		}
@@ -125,14 +242,84 @@ public class WatchedWatchingToWatchController implements Initializable {
 				episodes = rows.getString("episodes");
 				description = rows.getString("description");
 				newAnchor.setOnMouseClicked(e ->{
+					watchingButton.setDisable(false);
 					anchorCover.setStyle("-fx-background-image: url('"+imgName+".jpg')");
 					titleText.setText("Title: "+title);
 					genreText.setText("Genre: "+genre);
 					countryText.setText("Country: "+country);
-					ratingText.setText("Country: "+rating+"/10");
+					ratingText.setText("Rating: "+rating+"/10");
 					premiereOrSeasonsText.setText("Seasons: "+seasons);
-					runtimeOrEpisodesText.setText("Episodes: "+episodes+"min");
+					runtimeOrEpisodesText.setText("Episodes: "+episodes);
 					descriptionLabel.setText("     "+description);
+					watchedButton.setOnAction(e2 -> {
+						try {
+		    				String query = "update series set watched = ? where title='"+title+"';";
+							PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set watching = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set toWatch = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							showWatched();
+							message.setText("Deleted from watched!");
+						    message.setFill(Color.GREEN);
+						} catch (SQLException er2) {
+							er2.printStackTrace();
+							message.setText("Can't send values to database!");
+							message.setFill(Color.RED);
+						}
+					});
+					watchingButton.setOnAction(e2 -> {
+						try {
+		    				String query = "update series set watched = ? where title='"+title+"';";
+							PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set watching = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, true);
+							statement.executeUpdate();
+							query = "update series set toWatch = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							showWatched();
+							message.setText("Added to watching!");
+						    message.setFill(Color.GREEN);
+						} catch (SQLException er2) {
+							er2.printStackTrace();
+							message.setText("Can't send values to database!");
+							message.setFill(Color.RED);
+						}
+					});
+					toWatchButton.setOnAction(e2 -> {
+						try {
+		    				String query = "update series set watched = ? where title='"+title+"';";
+							PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set watching = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set toWatch = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, true);
+							statement.executeUpdate();
+							showWatched();
+							message.setText("Added to watch!");
+						    message.setFill(Color.GREEN);
+						} catch (SQLException er2) {
+							er2.printStackTrace();
+							message.setText("Can't send values to database!");
+							message.setFill(Color.RED);
+						}
+					});
 				});
 				newMoviePanes.add(newAnchor);
 			}
@@ -145,6 +332,107 @@ public class WatchedWatchingToWatchController implements Initializable {
 	}
 	
 	public void showWatching(){
+		newMoviePanes.clear();
+		
+		try {
+			Statement sqlState = MySQL.conn.createStatement();
+			String selectStuff = "Select imgName, title, genre, country, rating, seasons, episodes, description from series where watching=true";
+		    ResultSet rows = sqlState.executeQuery(selectStuff);
+		    String imgName, title, genre, country, rating, seasons, episodes, description;
+		    if(rows.next()!=false){
+			imgName = rows.getString("imgName");
+			title = rows.getString("title");
+			genre = rows.getString("genre");
+			country = rows.getString("country");
+			rating = rows.getString("rating");
+			seasons = rows.getString("seasons");
+			episodes = rows.getString("episodes");
+			description = rows.getString("description");
+			watchedButton.getStyleClass().add("wButton");
+			toWatchButton.getStyleClass().add("wButton");
+			watchingButton.getStyleClass().add("deleteButton");
+			anchorCover.setStyle("-fx-background-image: url('"+imgName+".jpg')");
+			titleText.setText("Title: "+title);
+			genreText.setText("Genre: "+genre);
+			countryText.setText("Country: "+country);
+			ratingText.setText("Rating: "+rating+"/10");
+			premiereOrSeasonsText.setText("Seasons: "+seasons);
+			runtimeOrEpisodesText.setText("Episodes: "+episodes);
+			descriptionLabel.setText("     "+description);
+			watchedButton.setOnAction(e2 -> {
+				try {
+    				String query = "update series set watched = ? where title='"+title+"';";
+					PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, true);
+					statement.executeUpdate();
+					query = "update series set watching = ? where title='"+title+"';";
+					statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					query = "update series set toWatch = ? where title='"+title+"';";
+					statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					showWatching();
+					message.setText("Added to watched!");
+				    message.setFill(Color.GREEN);
+				} catch (SQLException er2) {
+					er2.printStackTrace();
+					message.setText("Can't send values to database!");
+					message.setFill(Color.RED);
+				}
+			});
+			watchingButton.setOnAction(e2 -> {
+				try {
+    				String query = "update series set watched = ? where title='"+title+"';";
+					PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					query = "update series set watching = ? where title='"+title+"';";
+					statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					query = "update series set toWatch = ? where title='"+title+"';";
+					statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					showWatching();
+					message.setText("Deleted from watching!");
+				    message.setFill(Color.GREEN);
+				} catch (SQLException er2) {
+					er2.printStackTrace();
+					message.setText("Can't send values to database!");
+					message.setFill(Color.RED);
+				}
+			});
+			toWatchButton.setOnAction(e2 -> {
+				try {
+    				String query = "update series set watched = ? where title='"+title+"';";
+					PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					query = "update series set watching = ? where title='"+title+"';";
+					statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					query = "update series set toWatch = ? where title='"+title+"';";
+					statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, true);
+					statement.executeUpdate();
+					showWatching();
+					message.setText("Added to watch!");
+				    message.setFill(Color.GREEN);
+				} catch (SQLException er2) {
+					er2.printStackTrace();
+					message.setText("Can't send values to database!");
+					message.setFill(Color.RED);
+				}
+			});
+		    }
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+	
 		watchedButton.setText("Watched");
 		watchingButton.setText("Delete From List");
 		toWatchButton.setText("To Watch");
@@ -187,8 +475,77 @@ public class WatchedWatchingToWatchController implements Initializable {
 					countryText.setText("Country: "+country);
 					ratingText.setText("Country: "+rating+"/10");
 					premiereOrSeasonsText.setText("Seasons: "+seasons);
-					runtimeOrEpisodesText.setText("Episodes: "+episodes+"min");
+					runtimeOrEpisodesText.setText("Episodes: "+episodes);
 					descriptionLabel.setText("     "+description);
+					watchedButton.setOnAction(e2 -> {
+						try {
+		    				String query = "update series set watched = ? where title='"+title+"';";
+							PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, true);
+							statement.executeUpdate();
+							query = "update series set watching = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set toWatch = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							showWatching();
+							message.setText("Added to watched!");
+						    message.setFill(Color.GREEN);
+						} catch (SQLException er2) {
+							er2.printStackTrace();
+							message.setText("Can't send values to database!");
+							message.setFill(Color.RED);
+						}
+					});
+					watchingButton.setOnAction(e2 -> {
+						try {
+		    				String query = "update series set watched = ? where title='"+title+"';";
+							PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set watching = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set toWatch = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							showWatching();
+							message.setText("Deleted from watching!");
+						    message.setFill(Color.GREEN);
+						} catch (SQLException er2) {
+							er2.printStackTrace();
+							message.setText("Can't send values to database!");
+							message.setFill(Color.RED);
+						}
+					});
+					toWatchButton.setOnAction(e2 -> {
+						try {
+		    				String query = "update series set watched = ? where title='"+title+"';";
+							PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set watching = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set toWatch = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, true);
+							statement.executeUpdate();
+							showWatching();
+							message.setText("Added to watch!");
+						    message.setFill(Color.GREEN);
+						} catch (SQLException er2) {
+							er2.printStackTrace();
+							message.setText("Can't send values to database!");
+							message.setFill(Color.RED);
+						}
+					});
 				});
 				newMoviePanes.add(newAnchor);
 			}
@@ -201,6 +558,79 @@ public class WatchedWatchingToWatchController implements Initializable {
 	}
 	
 	public void showToWatch(){
+		
+		newMoviePanes.clear();
+		
+		try {
+			Statement sqlState = MySQL.conn.createStatement();
+			String selectStuff = "Select imgName, title, genre, country, rating, premiere, runtime, description from movies where toWatch=true";
+			ResultSet rows = sqlState.executeQuery(selectStuff);
+			
+			String imgName, title, genre, country, rating, premiere, runtime, description;
+			if(rows.next()!=false){
+			imgName =  rows.getString("imgName");
+			title = rows.getString("title");
+			genre = rows.getString("genre");
+			country = rows.getString("country");
+			rating = rows.getString("rating");
+			premiere = rows.getString("premiere");
+			runtime = rows.getString("runtime");
+			description = rows.getString("description");
+			watchedButton.getStyleClass().add("wButton");
+			toWatchButton.getStyleClass().add("deleteButton");
+			watchingButton.getStyleClass().add("wButton");
+			watchingButton.setDisable(true);
+			anchorCover.setStyle("-fx-background-image: url('"+imgName+".jpg')");
+			titleText.setText("Title: "+title);
+			genreText.setText("Genre: "+genre);
+			countryText.setText("Country: "+country);
+			ratingText.setText("Rating: "+rating+"/10");
+			premiereOrSeasonsText.setText("Premiere: "+premiere);
+			runtimeOrEpisodesText.setText("Runtime: "+runtime+"min");
+			descriptionLabel.setText("     "+description);
+			watchedButton.setOnAction(e2 -> {
+				try {
+    				String query = "update movies set watched = ? where title='"+title+"';";
+					PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, true);
+					statement.executeUpdate();
+					query = "update movies set toWatch = ? where title='"+title+"';";
+					statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					showToWatch();
+					message.setText("Added to watched!");
+				    message.setFill(Color.GREEN);
+				} catch (SQLException er2) {
+					er2.printStackTrace();
+					message.setText("Can't send values to database!");
+					message.setFill(Color.RED);
+				}
+			});
+			toWatchButton.setOnAction(e2 -> {
+				try {
+    				String query = "update movies set watched = ? where title='"+title+"';";
+					PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					query = "update movies set toWatch = ? where title='"+title+"';";
+					statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+					statement.setBoolean(1, false);
+					statement.executeUpdate();
+					showToWatch();
+					message.setText("Deleted from to watch!");
+				    message.setFill(Color.GREEN);
+				} catch (SQLException er2) {
+					er2.printStackTrace();
+					message.setText("Can't send values to database!");
+					message.setFill(Color.RED);
+				}
+			});
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		watchedButton.setText("Watched");
 		watchingButton.setText("Watching");
 		toWatchButton.setText("Delete From List");
@@ -238,14 +668,53 @@ public class WatchedWatchingToWatchController implements Initializable {
 			runtime = rows.getString("runtime");
 			description = rows.getString("description");
 			newAnchor.setOnMouseClicked(e ->{
+				watchingButton.setDisable(true);
 				anchorCover.setStyle("-fx-background-image: url('"+imgName+".jpg')");
 				titleText.setText("Title: "+title);
 				genreText.setText("Genre: "+genre);
 				countryText.setText("Country: "+country);
-				ratingText.setText("Country: "+rating+"/10");
+				ratingText.setText("Rating: "+rating+"/10");
 				premiereOrSeasonsText.setText("Premiere: "+premiere);
 				runtimeOrEpisodesText.setText("Runtime: "+runtime+"min");
 				descriptionLabel.setText("     "+description);
+				watchedButton.setOnAction(e2 -> {
+					try {
+	    				String query = "update movies set watched = ? where title='"+title+"';";
+						PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+						statement.setBoolean(1, true);
+						statement.executeUpdate();
+						query = "update movies set toWatch = ? where title='"+title+"';";
+						statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+						statement.setBoolean(1, false);
+						statement.executeUpdate();
+						showToWatch();
+						message.setText("Added to watched!");
+					    message.setFill(Color.GREEN);
+					} catch (SQLException er2) {
+						er2.printStackTrace();
+						message.setText("Can't send values to database!");
+						message.setFill(Color.RED);
+					}
+				});
+				toWatchButton.setOnAction(e2 -> {
+					try {
+	    				String query = "update movies set watched = ? where title='"+title+"';";
+						PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+						statement.setBoolean(1, false);
+						statement.executeUpdate();
+						query = "update movies set toWatch = ? where title='"+title+"';";
+						statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+						statement.setBoolean(1, false);
+						statement.executeUpdate();
+						showToWatch();
+						message.setText("Deleted from to watch!");
+					    message.setFill(Color.GREEN);
+					} catch (SQLException er2) {
+						er2.printStackTrace();
+						message.setText("Can't send values to database!");
+						message.setFill(Color.RED);
+					}
+				});
 			});
 			newMoviePanes.add(newAnchor);
 		}
@@ -274,14 +743,84 @@ public class WatchedWatchingToWatchController implements Initializable {
 				episodes = rows.getString("episodes");
 				description = rows.getString("description");
 				newAnchor.setOnMouseClicked(e ->{
+					watchingButton.setDisable(false);
 					anchorCover.setStyle("-fx-background-image: url('"+imgName+".jpg')");
 					titleText.setText("Title: "+title);
 					genreText.setText("Genre: "+genre);
 					countryText.setText("Country: "+country);
-					ratingText.setText("Country: "+rating+"/10");
+					ratingText.setText("Rating: "+rating+"/10");
 					premiereOrSeasonsText.setText("Seasons: "+seasons);
-					runtimeOrEpisodesText.setText("Episodes: "+episodes+"min");
+					runtimeOrEpisodesText.setText("Episodes: "+episodes);
 					descriptionLabel.setText("     "+description);
+					watchedButton.setOnAction(e2 -> {
+						try {
+		    				String query = "update series set watched = ? where title='"+title+"';";
+							PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, true);
+							statement.executeUpdate();
+							query = "update series set watching = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set toWatch = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							showToWatch();
+							message.setText("Added to watched!");
+						    message.setFill(Color.GREEN);
+						} catch (SQLException er2) {
+							er2.printStackTrace();
+							message.setText("Can't send values to database!");
+							message.setFill(Color.RED);
+						}
+					});
+					watchingButton.setOnAction(e2 -> {
+						try {
+		    				String query = "update series set watched = ? where title='"+title+"';";
+							PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set watching = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, true);
+							statement.executeUpdate();
+							query = "update series set toWatch = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							showToWatch();
+							message.setText("Added to watching!");
+						    message.setFill(Color.GREEN);
+						} catch (SQLException er2) {
+							er2.printStackTrace();
+							message.setText("Can't send values to database!");
+							message.setFill(Color.RED);
+						}
+					});
+					toWatchButton.setOnAction(e2 -> {
+						try {
+		    				String query = "update series set watched = ? where title='"+title+"';";
+							PreparedStatement statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set watching = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							query = "update series set toWatch = ? where title='"+title+"';";
+							statement =  (PreparedStatement) MySQL.conn.prepareStatement(query);
+							statement.setBoolean(1, false);
+							statement.executeUpdate();
+							showToWatch();
+							message.setText("Deleted from to watch!");
+						    message.setFill(Color.GREEN);
+						} catch (SQLException er2) {
+							er2.printStackTrace();
+							message.setText("Can't send values to database!");
+							message.setFill(Color.RED);
+						}
+					});
 				});
 				newMoviePanes.add(newAnchor);
 			}
@@ -346,7 +885,7 @@ public class WatchedWatchingToWatchController implements Initializable {
         controller.setIndex(2);
     	Scene home_page_scene = new Scene(home_page_parent, 1280, 720);
     	Stage app_stage =  (Stage) ((Node)hbox).getScene().getWindow();
-    	home_page_scene.getStylesheets().add(getClass().getResource("TopLIsts.css").toExternalForm());
+    	home_page_scene.getStylesheets().add(getClass().getResource("TopLists.css").toExternalForm());
     	app_stage.setScene(home_page_scene);
     	app_stage.show();
     }

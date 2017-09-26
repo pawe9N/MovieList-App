@@ -23,7 +23,7 @@
             </MenuButton>
             <Button mnemonicParsing="false" onMouseClicked="#showMoviesListClick" prefHeight="25.0" prefWidth="108.0" text="Random Movies" />
             <Button mnemonicParsing="false" onMouseClicked="#showSeriesListClick" prefHeight="25.0" prefWidth="110.0" text="Random Series" />
-            <Button mnemonicParsing="false" onMouseClicked="#showWatched" prefHeight="25.0" prefWidth="153.0" text="Watched" />
+            <Button fx:id="watchedB" mnemonicParsing="false" onMouseClicked="#showWatched" prefHeight="25.0" prefWidth="153.0" text="Watched" />
             <Button mnemonicParsing="false" onMouseClicked="#showWatching" prefHeight="25.0" prefWidth="105.0" text="Watching" />
             <Button mnemonicParsing="false" onMouseClicked="#showToWatch" prefHeight="25.0" prefWidth="112.0" text="To Watch" />
             <Button mnemonicParsing="false" onMouseClicked="#showSearch" prefHeight="25.0" prefWidth="103.0" text="Search" />
@@ -92,6 +92,11 @@
                   <Button fx:id="watchedButton" layoutX="416.0" layoutY="324.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="Delete from List" />
                   <Button fx:id="watchingButton" layoutX="646.0" layoutY="324.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="Watching" />
                   <Button fx:id="toWatchButton" layoutX="875.0" layoutY="324.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" styleClass="wButton" text="To Watch" />
+                  <Text fx:id="message" fill="WHITE" layoutX="600.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="275.1328125">
+	                <font>
+	                  <Font size="24.0" />
+	               </font>
+                </Text>
                </children>
             </AnchorPane>
             <AnchorPane layoutY="378.0" prefHeight="242.0" prefWidth="879.0" styleClass="anchorListOfMovies">

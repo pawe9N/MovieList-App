@@ -180,3 +180,13 @@
 	-fx-cursor: hand;
 	-fx-background-color: #202746;
 }
+
+.deleteButton{
+	-fx-background-color: Crimson;
+	-fx-font-weight: bold;
+	-fx-background-radius: 20px;
+}
+
+.deleteButton:hover{
+	-fx-background-color: red;
+}
