@@ -213,13 +213,12 @@ public class AddController implements Initializable {
 	
 	public void copyImageToBin(File file, AnchorPane anchorImages){
 		Path from = file.toPath();
-	 	String toPath = getClass().getClassLoader().getResource(".").getPath();
+	 	String toPath = getClass().getClassLoader().getResource("").getPath();
 	 	toPath = toPath.replaceFirst("^/(.:/)", "$1");
 	 	Path to = Paths.get(toPath+file.getName());
         try {
 			Files.copy(from, to, StandardCopyOption.REPLACE_EXISTING);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		anchorImages.setStyle("-fx-background-image:url('"+file.getName()+"')");
