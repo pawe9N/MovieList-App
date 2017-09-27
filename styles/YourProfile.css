@@ -122,3 +122,7 @@
 	 -fx-underline: true;
 	-fx-font-size: 30pt;
 }
+
+.awatar{
+	-fx-background-size: cover;
+}

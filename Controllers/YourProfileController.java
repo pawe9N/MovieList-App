@@ -39,7 +39,7 @@ public class YourProfileController implements Initializable {
 	
 	@Override 
     public void initialize(URL location, ResourceBundle resources) {
-		awatar.setStyle("-fx-background-image: url('dexter.jpg')");
+		awatar.setStyle("-fx-background-image: url('awatar.png')");
         loadingTables();    
     }
 	
