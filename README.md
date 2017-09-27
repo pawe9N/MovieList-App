@@ -12,41 +12,50 @@ After that you must import movieLIstApp.sql file to your datatabase to make tabl
 
 - First start
 
-<img src="https://media.giphy.com/media/3ohhwqjkI0nIGOAZfG/giphy.gif"/>
+<img src="https://i.imgur.com/b1lbTif.gif"></img>
 
-- Random movies and series scenes - clicking in movie boxes
 
-<img src="https://media.giphy.com/media/3ov9jW4FcjJ7AgOOFq/giphy.gif"/>
+- Random movies and series scenes
 
-- Random movies and series scenes - how random works
+<img src="https://i.imgur.com/33ZioT9.gif">
 
-<img src="https://media.giphy.com/media/l378rVDepmDC6lFHW/giphy.gif" />
 
 - Top Lists scenes
 
-<img src="https://media.giphy.com/media/3ov9jW4FcjJ7AgOOFq/giphy.gif" />
+<img src="https://i.imgur.com/dHDcNEt.gif">
 
 
 - Watched, Watching and To Watch Scene
 
-<img src="" />
+<img src="https://i.imgur.com/jAi9Clh.gif">
 
 
 - Search scene
 
+<img src="https://i.imgur.com/3gntzta.gif">
 
 
-- Add movie scene
+- Add movie new movie (in this example "To the Bone" with literal error "Bones" - it will be corrected in change scene)
+
+<img src="https://i.imgur.com/c4MrWoO.gif">
 
 
-- Add series scene
+- Add series new series (in this example "The Office")
+
+<img src="https://i.imgur.com/n9saiJK.gif">
 
 
-- Change details about movies
+- Change details about movies or series (in this example from movie's title "To the Bones" to "To the Bone")
+
+<img src="https://i.imgur.com/N3oWTru.gif">
 
 
-- Delete scene
+- Delete movie or series scene (in this example deleted is movie "To the Bone")
+
+<img src="https://i.imgur.com/r6wyMie.gif">
 
 
 - Your Profile scene
+
+<img src="https://i.imgur.com/X3zX6Xp.gif">
 
