@@ -12,24 +12,22 @@ After that you must import movieLIstApp.sql file to your datatabase to make tabl
 
 - First start
 
-<img src="https://media.giphy.com/media/3ohhwqjkI0nIGOAZfG/giphy.gif" />
+<img src="https://media.giphy.com/media/3ohhwqjkI0nIGOAZfG/giphy.gif"/>
 
 - Random movies and series scenes - clicking in movie boxes
 
-<img src="https://media.giphy.com/media/xT9Igmn0YHPO23R1UA/giphy.gif" />
-
+<img src="https://media.giphy.com/media/3ov9jW4FcjJ7AgOOFq/giphy.gif"/>
 
 - Random movies and series scenes - how random works
 
-<img src="" />
-
+<img src="https://media.giphy.com/media/l378rVDepmDC6lFHW/giphy.gif" />
 
 - Top Lists scenes
 
-<img src="" />
+<img src="https://media.giphy.com/media/3ov9jW4FcjJ7AgOOFq/giphy.gif" />
 
 
-- Watched, Watching and To Watch Ssene
+- Watched, Watching and To Watch Scene
 
 <img src="" />
 
