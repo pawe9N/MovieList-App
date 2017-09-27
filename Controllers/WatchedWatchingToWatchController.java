@@ -32,7 +32,7 @@ public class WatchedWatchingToWatchController implements Initializable {
 	@FXML HBox hbox;
 	@FXML AnchorPane anchorScroll, anchorMovie, anchorCover;
 	@FXML Button watchedButton, watchingButton, toWatchButton, watchedB;
-	@FXML Label descriptionLabel;
+	@FXML Label descriptionLabel, hboxLabel;
 	@FXML Text runtimeOrEpisodesText, premiereOrSeasonsText, ratingText, countryText, genreText, titleText, message;
 	ObservableList<AnchorPane> newMoviePanes = FXCollections.observableArrayList();
 	private IntegerProperty indexC = new SimpleIntegerProperty(-1);
@@ -55,6 +55,7 @@ public class WatchedWatchingToWatchController implements Initializable {
 	
 	public void showWatched(){
 		
+		hboxLabel.setText("MovieList App - Watched");
 		newMoviePanes.clear();
 		
 		try {
@@ -332,6 +333,7 @@ public class WatchedWatchingToWatchController implements Initializable {
 	}
 	
 	public void showWatching(){
+		hboxLabel.setText("MovieList App - Watching");
 		newMoviePanes.clear();
 		
 		try {
@@ -558,7 +560,7 @@ public class WatchedWatchingToWatchController implements Initializable {
 	}
 	
 	public void showToWatch(){
-		
+		hboxLabel.setText("MovieList App - To Watch");
 		newMoviePanes.clear();
 		
 		try {

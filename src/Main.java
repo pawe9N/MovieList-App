@@ -17,7 +17,7 @@ public class Main extends Application {
     	MySQL.initialization();
     	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("RandomMoviesAndSeries.fxml"));
-        primaryStage.setTitle("Movie App");
+        primaryStage.setTitle("MovieList App");
         primaryStage.setResizable(false);
         Parent root = loader.load();
         scene = new Scene(root, 1280, 720);

@@ -108,19 +108,23 @@ public class TopListsController implements Initializable {
 			 Statement sqlState = MySQL.conn.createStatement();
 			 String selectStuff = "Select title, genre, imgName, country, rating from "+tableName+" where watched=true order by rating desc";
 			 ResultSet rows = sqlState.executeQuery(selectStuff);
-			 while(rows.next()){
-			    imgName = rows.getString("imgName");
-			    cover = new ImageView(new Image(imgName+".jpg"));
-			    cover.setFitHeight(150);
-			    cover.setFitWidth(100);
-				title = rows.getString("title");
-				genre = rows.getString("genre").replaceAll(",", "");
-			    country = rows.getString("country");
-				rating = rows.getString("rating");
-				row.add(new MoviesAndSeriesTables("#"+index.toString(), cover, title, genre, country, rating+"/10"));
-				table.setItems(row);
-				index++;
-			 }
+				 while(rows.next()){
+				    imgName = rows.getString("imgName");
+				try{
+					cover = new ImageView(new Image(imgName+".jpg"));
+				    cover.setFitHeight(150);
+				    cover.setFitWidth(100);
+				 }catch(Exception e){
+					 cover = new ImageView();
+				 }
+					title = rows.getString("title");
+					genre = rows.getString("genre").replaceAll(",", "");
+				    country = rows.getString("country");
+					rating = rows.getString("rating");
+					row.add(new MoviesAndSeriesTables("#"+index.toString(), cover, title, genre, country, rating+"/10"));
+					table.setItems(row);
+					index++;
+				 }
 		 }
 		 catch (SQLException ex) {
 			 System.out.println("SQLException: " + ex.getMessage());
