@@ -6,7 +6,7 @@ into the databse and then you can divide them into watched, watching and to watc
 
 If you want to use this program, you have to download all files of this repository, Java JDK, JavaFX, MYSQL Community and MYSQL connector.
 Then you have to go to MySQL.java in src folder and configure "Connection conn" variable to your own database data like password, login.
-After that you must import movieLIstApp.sql file to your datatabase to make tables with movie and series list. If you make this, you will be able to run application.
+After that you must import movieLIstApp.sql file to your datatabase to make tables with movie's and series's columns. If you make this, you will be able to run application.
 
 ## Little demo with gifs
 
