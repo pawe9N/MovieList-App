@@ -125,7 +125,7 @@
             </Pane>
             <Button fx:id="explorerImagesSeries" layoutX="608.0" layoutY="329.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="230.0" styleClass="explorerImages" text="Upload Image" />
             <AnchorPane fx:id="anchorImageSeries" layoutX="633.0" layoutY="115.0" prefHeight="202.0" prefWidth="150.0" styleClass="anchorImage" />
-            <Button fx:id="submitSeries" layoutX="608.0" layoutY="460.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="144.0" styleClass="submit" text="Add new movie" />
+            <Button fx:id="submitSeries" layoutX="608.0" layoutY="460.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="144.0" styleClass="submit" text="Add new series" />
             <Pane layoutX="623.0" layoutY="415.0">
                <children>
                   <RadioButton fx:id="watchedSeries" layoutX="-70.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="138.0" selected="true" text="Watched" textAlignment="CENTER" textFill="WHITE">

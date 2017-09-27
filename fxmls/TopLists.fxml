@@ -41,18 +41,13 @@
    <top>
       <HBox fx:id="hbox" prefHeight="100.0" prefWidth="200.0" styleClass="hbox" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="43.0" prefWidth="100.0" text="MovieList App - Top List" />
+            <Label fx:id="hboxLabel" alignment="CENTER" prefHeight="43.0" prefWidth="100.0" text="MovieList App - Top List" />
          </children>
       </HBox>
    </top>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text fx:id="pageTitle" fill="WHITE" layoutX="430.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="pageTitle" text="Movie List">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Text>
             <TableView fx:id="table" layoutX="57.0" layoutY="63.0" prefHeight="558.0" prefWidth="937.0">
                <columns>
                   <TableColumn fx:id="Id" editable="false" prefWidth="86.0" sortable="false" styleClass="id" text="Id" />
