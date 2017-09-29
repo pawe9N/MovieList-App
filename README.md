@@ -35,12 +35,12 @@ After that you must import movieLIstApp.sql file to your datatabase to make tabl
 <img src="https://i.imgur.com/3gntzta.gif">
 
 
-- Add movie new movie (in this example "To the Bone" with literal error "Bones" - it will be corrected in change scene)
+- Add new movie (in this example "To the Bone" with literal error "Bones" - it will be corrected in change scene)
 
 <img src="https://i.imgur.com/c4MrWoO.gif">
 
 
-- Add series new series (in this example "The Office")
+- Add new series (in this example "The Office")
 
 <img src="https://i.imgur.com/n9saiJK.gif">
 
