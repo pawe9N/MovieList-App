@@ -1,5 +1,8 @@
 # MovieList-App
-MovieList App was created for purpose of learning Java, JavaFx, FXML and MySQL. This app can arrange your movie's and series's schedule 
+MovieList App was created for purpose of learning Java, JavaFx, FXML and MySQL. 
+
+## Description of application
+This app can arrange your movie's and series's schedule 
 into the database. After that you can divide them into watched, watching and to watch sections. So that your list will be clearer and more readable.
 
 ## Getting Started
